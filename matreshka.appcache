@@ -1,7 +1,7 @@
 CACHE MANIFEST
-# 1
+# 2
 css/screen.css
-js/dist/app.js
+js/dist/app.min.js
 fonts/Roboto-Light.ttf
 fonts/Roboto-Regular.ttf
 fonts/Roboto-Bold.ttf
