@@ -11,7 +11,6 @@ define([
 	'lib/embed-jsbin'
 ], function( g, MK, $, Articles, Typedefs, Typo, Search, __1, __2, embed ) {
 	"use strict";
-
 	return MK.Class({
 		'extends': MK.Object,
 		constructor: function() {

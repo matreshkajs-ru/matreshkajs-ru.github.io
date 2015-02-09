@@ -9287,9 +9287,10 @@ pre {
   margin-bottom: 1rem;
   tab-size: 4;
   -moz-tab-size: 4;
+  position: relative;
 }
 
-/* line 88, ../scss/site/_common.scss */
+/* line 89, ../scss/site/_common.scss */
 .close-modal {
   position: absolute;
   padding: 5px;
@@ -9299,17 +9300,17 @@ pre {
   font-size: 1.5rem;
   opacity: .5;
 }
-/* line 97, ../scss/site/_common.scss */
+/* line 98, ../scss/site/_common.scss */
 .close-modal:hover {
   opacity: 1;
 }
 
-/* line 102, ../scss/site/_common.scss */
+/* line 103, ../scss/site/_common.scss */
 a {
   text-decoration: none;
 }
 
-/* line 106, ../scss/site/_common.scss */
+/* line 107, ../scss/site/_common.scss */
 i.important {
   font-size: 1.5rem;
   margin-left: 2px;
@@ -9890,7 +9891,7 @@ header .search-results-dropdown {
 }
 /* line 45, ../scss/site/_header.scss */
 header .search-results-dropdown li {
-  line-height: 38px;
+  line-height: 56px;
   font-size: 1rem;
   padding-left: 30px;
   white-space: nowrap;
@@ -9923,7 +9924,7 @@ header .search-content .search {
   font-size: 1.5rem;
   width: 80%;
   width: calc( 100% - 70px );
-  float: right;
+  float: left;
   margin-bottom: 0;
   height: 46px;
   margin-top: 5px;
@@ -10000,8 +10001,12 @@ header .default-value {
   header .type {
     display: none !important;
   }
+  /* line 155, ../scss/site/_header.scss */
+  header .search-results-dropdown li {
+    line-height: 38px;
+  }
 }
-/* line 157, ../scss/site/_header.scss */
+/* line 160, ../scss/site/_header.scss */
 header.hidden {
   transform: translateY(-56px);
 }
