@@ -9959,20 +9959,21 @@ header [data-type] {
 header i {
   padding: 0 18px;
   cursor: pointer;
+  font-size: 1.7rem;
 }
-/* line 115, ../scss/site/_header.scss */
+/* line 116, ../scss/site/_header.scss */
 header i.show-nav {
   float: left;
   display: none;
 }
-/* line 121, ../scss/site/_header.scss */
+/* line 122, ../scss/site/_header.scss */
 header i.show-search {
   float: right;
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 129, ../scss/site/_header.scss */
+/* line 130, ../scss/site/_header.scss */
 header .default-value {
   display: none;
 }
@@ -9982,31 +9983,31 @@ header .default-value {
     font-size: 1.5rem;
     padding-left: 0;
   }
-  /* line 137, ../scss/site/_header.scss */
+  /* line 138, ../scss/site/_header.scss */
   header .inner {
     width: auto;
     margin-right: 57px;
   }
-  /* line 142, ../scss/site/_header.scss */
+  /* line 143, ../scss/site/_header.scss */
   header i.show-nav {
     display: inline-block;
   }
-  /* line 146, ../scss/site/_header.scss */
+  /* line 147, ../scss/site/_header.scss */
   header .returns, header .default-value, header .memberof {
     display: none !important;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 152, ../scss/site/_header.scss */
+  /* line 153, ../scss/site/_header.scss */
   header .type {
     display: none !important;
   }
-  /* line 155, ../scss/site/_header.scss */
+  /* line 156, ../scss/site/_header.scss */
   header .search-results-dropdown li {
     line-height: 38px;
   }
 }
-/* line 160, ../scss/site/_header.scss */
+/* line 161, ../scss/site/_header.scss */
 header.hidden {
   transform: translateY(-56px);
 }

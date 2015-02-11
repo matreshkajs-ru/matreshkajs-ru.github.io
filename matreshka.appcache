@@ -1,5 +1,4 @@
 CACHE MANIFEST
-# 2
 css/screen.css
 js/dist/app.min.js
 fonts/Roboto-Light.ttf
@@ -8,3 +7,6 @@ fonts/Roboto-Bold.ttf
 fonts/Material-Design-Icons.ttf
 img/todomvc.png
 img/mk1-logo.svg
+
+NETWORK:
+*
