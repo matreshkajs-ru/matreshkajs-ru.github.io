@@ -50,7 +50,7 @@ define([
 				.on( 'change:shown', function( evt ) {
 					if( evt.value ) {
 						this.overlay = true;
-						this.immediate( function() {
+						this.delay( function() {
 							this.overlayOpaque = true;
 						});
 					} else {
@@ -68,7 +68,7 @@ define([
 			;
 		
 			g.app.on( 'keydown::sandbox', function( evt ) {
-				if( 13 === evt.which && ( evt.ctrlKey || evt.metaKey ) ) {
+				if( 13 === evt.which && ( evt.domEvent.ctrlKey || evt.domEvent.metaKey ) ) {
 					var selectionText = window.getSelection().toString();
 					if( selectionText ) {
 						this.comment = '';
