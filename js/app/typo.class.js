@@ -31,7 +31,7 @@ define([
 					setValue: function( v ) {
 						this.name = v;
 					}
-				})
+				}) 
 				.bindNode( 'overlay', '.typo-overlay', MK.binders.className( '!hide' ) )
 				.bindNode( 'overlayOpaque', ':bound(overlay)', {
 					setValue: function( v ) {
