@@ -9,6 +9,4 @@ var ESC_KEY = 27;
 	// Инициализируем приложение
 	window.app = new Todos;
 	// См. [todos.js](todos.html) и [todo.js](todo.html)
-	//
-	// [English version](../../js/docs/app.html)
 })(window);
