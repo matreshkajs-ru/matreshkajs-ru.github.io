@@ -1,6 +1,8 @@
 CACHE MANIFEST
 css/screen.css
 js/dist/app.min.js
+js/dist/app.js
+js/dist/app.map
 fonts/Roboto-Light.ttf
 fonts/Roboto-Regular.ttf
 fonts/Roboto-Bold.ttf
@@ -11,4 +13,4 @@ img/mk1-logo.svg
 NETWORK:
 *
 
-#11.02
+#16.02
