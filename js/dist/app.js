@@ -1322,7 +1322,7 @@ define('app/main.class',[
 					
 					this.navShown = false;
 				})
-				.on( 'click::([href*="jsbin.com"])', function( evt ) {
+				.on( 'click::([href*="jsbin.com"][href*="edit"])', function( evt ) {
 					if( evt.target.classList.contains( 'embedded' ) ) {
 						evt.target.nextSibling.classList.toggle( 'hide' );
 					} else {

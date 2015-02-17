@@ -866,7 +866,7 @@ app.bindNode( 'x', '.my-input' );
 app.x = 'Двустороннее связывание данных в JS? Серьезно?';
 &lt;/script&gt;</code></pre><!--Two-way data binding in JS? O rly?-->
 		<p>
-			<a href="http://ru.matreshka.io/js/matreshka.min.js" download class="download-btn">Скачать <i></i></a>
+			<a href="https://raw.githubusercontent.com/finom/matreshka/master/matreshka.min.js" download class="download-btn">Скачать <i></i></a>
 			<a href="https://github.com/finom/matreshka" class="github-btn">Github <i></i></a>
 		</p>
 	</article>
@@ -897,7 +897,7 @@ app.x = 'Двустороннее связывание данных в JS? Се�
     &lt;body>
         &lt;input type="text" class="my-input">
         &lt;div class="my-output">&lt;/div>
-        &lt;script src="https://cdn.example.com/matreshka.min.js">&lt;/script>
+        &lt;script src="http://cdn.jsdelivr.net/matreshka/latest/matreshka.min.js">&lt;/script>
         &lt;script src="js/app.js">&lt;/script>
     &lt;/body>
 &lt;/html></code></pre><p><strong>2.</strong> Напишите свой первый класс, наследующий Матрешку, создав файл <strong>js/app.js</strong></p>
@@ -940,7 +940,7 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
         });
     }
 }</code></pre></blockquote>
-<p><em>Тут будет ссылка на живой пример</em></p>
+<p><a href="http://jsbin.com/lalerebepo/2/edit?js,output">Живой пример</a> (нажмите кнопку "Run with JS", чтобы пример запустился)</p>
 <h4>Ссылки</h4><ul>
 <li><a href="#Matreshka">Класс Matreshka</a></li>
 <li><a href="#Matreshka-bindNode">Метод Matreshka#bindNode</a></li>
@@ -6653,7 +6653,7 @@ var MyArray = Class({
         // ждем генерации события
         this.on( 'render', function() {
             this.bindNode( 'isChecked', ':sandbox .my-checkbox' );
-            this.bindNode( 'value', ':sandbox .text', MK.binders.innerHTML() );
+            this.bindNode( 'text', ':sandbox .text', MK.binders.innerHTML() );
         });
     }
 });
@@ -6673,9 +6673,11 @@ var MyArray = Class({
         }, {
             isChecked: false,
             text: 'Produce shitcode'
-        })
+        });
     }
-});</code></pre><p>Код выше создаст такое HTML дерево:</p>
+});
+
+var app = new MyArray();</code></pre><p>Код выше создаст такое HTML дерево:</p>
 <pre class="prettyprint source lang-html"><code>&lt;form class="my-form">
     &lt;label>
         &lt;input type="checkbox" class="my-checkbox">
@@ -6685,7 +6687,7 @@ var MyArray = Class({
         &lt;input type="checkbox" class="my-checkbox">
         &lt;span class="text">Produce shitcode&lt;/span>
     &lt;/label>
-&lt;/form></code></pre><p>И свяжет чекбоксы с соответствующими свойствaми <code>isChecked</code> и <code>text</code>. <em>Тут будет ссылка на живой пример</em></p>
+&lt;/form></code></pre><p>И свяжет чекбоксы с соответствующими свойствaми <code>isChecked</code> и <code>text</code>. <a href="http://jsbin.com/kepizurotu/2/" target="_blank">Живой пример</a></p>
 <p>Не забывайте, что в Матрешке реализована возможность отлова всплывающих событий. Т. е. сам массив может отловить собвтие рендеринга элемента, используя имя события <code>@render</code> (см. документацию к <span data-type="eventNames">eventNames</span>).</p>
 <pre class="prettyprint source lang-js"><code>this.on( '@render', function( evt ) {
     alert( 'Child element is rendered' );
@@ -6712,9 +6714,11 @@ var MyArray = Class({
         }, {
             isChecked: false,
             text: 'Produce shitcode'
-        })
+        });
     }
-});</code></pre><p>Пример выше полностью повторяет предыдущий, но не требует создания отдельного класса для Модели, так как нам не требуется отлавливать событие <code>render</code> и объявлять привязки вручную. <em>Тут будет ссылка на живой пример</em></p>
+});
+
+var app = new MyArray();</code></pre><p>Пример выше полностью повторяет предыдущий, но не требует создания отдельного класса для Модели, так как нам не требуется отлавливать событие <code>render</code> и объявлять привязки вручную. <a href="http://jsbin.com/bucecujeqa/1/" target="_blank">Живой пример</a></p>
 <p>Такой подход выглядит очень привлекательно, но он имеет несколько особенностей из-за которых рекомендуется избегать экспериментальный шаблонизатор:</p>
 <ul>
 <li>Шаблонизатор - это экспериментальная возможность Матрешки. Он может рыботать нестабильно в некоторых, неучтенных случаях.</li>
