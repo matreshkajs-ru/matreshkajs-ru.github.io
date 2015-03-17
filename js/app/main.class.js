@@ -15,7 +15,7 @@ define([
 		'extends': MK.Object,
 		constructor: function() {
 			g.app = this;
-			console.log( this )
+
 			this
 				.bindNode( 'sandbox', 'body' )
 				.bindNode( 'mainTitle', 'title', {
