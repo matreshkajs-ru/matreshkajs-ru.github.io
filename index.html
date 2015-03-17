@@ -1141,12 +1141,14 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.on( 'foo', function() {
-	alert( 'customEvent is fired' );
+	alert( 'Custom Event is fired' );
 });
+
 this.trigger( 'foo' );</code></pre><h5><p>Передача контекста</p></h5>
 <pre class="prettyprint source lang-js"><code>this.on( 'foo', function() {
 	alert( this.a ); // 5
 }, { a: 5 } );
+
 this.trigger( 'foo', 'Hello world' );</code></pre><h5><p>Вызов обработчика сразу после инициализации</p></h5>
 <pre class="prettyprint source lang-js"><code>//Выводит на экран "bar" сиюсекундно и ждет генерации события "foo"
 this.on( 'foo', function() {
@@ -1824,7 +1826,7 @@ console.log( this.$( '.inner-node' ) );</code></pre></div>
 
 	<span data-type="$nodes">$nodes</span>
 </td>
-					<td> <p>HTML элемент, который должен быть со свойством экземпляра</p></td>
+					<td> <p>HTML элемент, который должен быть связан со свойством экземпляра</p></td>
 				</tr>
 			 
 				<tr>
@@ -6730,7 +6732,7 @@ var app = new MyArray();</code></pre><p>Код выше создаст тако�
     bindRenderedAsSandbox: false
     // ...
 });</code></pre></blockquote>
-<h4>Экспериментальный шаблонизатор</h4><p>Взглянув на примеры использования <a href="#Matreshka.Array">Matreshka.Array</a> и <a href="#Matreshka.Array-itemRenderer">Matreshka.Array#itemRenderer</a> можно обратить внимание на то, что вся логика, отвечающая за двустороннюю и одностороннюю привязку данных заключена в HTML коде. Это одно из главных преимуществ Матрешки. Но когда разрабатываешь очень простую коллекцию, не включающую в себя сложную логику, массу привязок и пр. хотелось бы иметь более краткий вариант объявления привязок. Для этого, в <code>itemRenderer</code> может быть передан шаблон, включающий привязки. Для того, чтоб включить шаблонизацию, используйте ключ <a href="#Matreshka.Array-useBindingsParser">Matreshka.Array#useBindingsParser</a>, установленный, как <code>true</code>.</p>
+<h4>Экспериментальный шаблонизатор</h4><p>Взглянув на примеры использования <a href="#Matreshka.Array">Matreshka.Array</a> и <a href="#Matreshka.Array-itemRenderer">Matreshka.Array#itemRenderer</a> можно обратить внимание на то, что вся логика, отвечающая за двустороннюю и одностороннюю привязку данных заключена в JavaScript коде. Это одно из главных преимуществ Матрешки. Но когда разрабатываешь очень простую коллекцию, не включающую в себя сложную логику, массу привязок и пр. хотелось бы иметь более краткий вариант объявления привязок. Для этого, в <code>itemRenderer</code> может быть передан шаблон, включающий привязки. Для того, чтоб включить шаблонизацию, используйте ключ <a href="#Matreshka.Array-useBindingsParser">Matreshka.Array#useBindingsParser</a>, установленный, как <code>true</code>.</p>
 <pre class="prettyprint source lang-js"><code>var MyArray = Class({
     'extends': MK.Array,
     useBindingsParser: true,
@@ -7994,7 +7996,7 @@ this.trigger( 'y', '"y" event is fired' );</code></pre><h3>Событие изм
     alert( evt.value );
 });
 this.x = 1;</code></pre><h3>DOM события для привязанных элементов</h3><p>DOM событие и ключ разделяются двойным двоеточием. Объект оригинального DOM события находится под ключём <code>domEvent</code> объекта события. Кроме этого, в объекте доступно несколько свойств и методов, для того чтобы не обращаться каждый раз к <code>domEvent</code>: <code>preventDefault</code>, <code>stopPropagation</code>, <code>which</code>, <code>target</code> и несколько других свойств (<code>key</code>, <code>element</code>, <code>elements</code>, <code>self</code>).</p>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'x', '.my-button' );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'x', '.my-button' );
 this.on( 'click::x', function( evt ) {
     alert( 'clicked "x"' );
     console.log( evt.domEvent ); // MouseEvent
@@ -8003,21 +8005,21 @@ this.on( 'click::x', function( evt ) {
 <pre class="prettyprint source lang-html"><code>&lt;div class="my-div">
     &lt;button class="my-button">&lt;/button>
 &lt;/div></code></pre><p>Сравните два варианта:</p>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'x', '.my-div' );
-this.bindElement( 'y', '.my-button' );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'x', '.my-div' );
+this.bindNode( 'y', '.my-button' );
 this.on( 'click::y', function( evt ) {
     alert( 'clicked ".my-button"' );
-});</code></pre><pre class="prettyprint source lang-js"><code>this.bindElement( 'x', '.my-div' );
+});</code></pre><pre class="prettyprint source lang-js"><code>this.bindNode( 'x', '.my-div' );
 this.on( 'click::x(.my-button)', function( evt ) {
     alert( 'clicked ".my-button"' );
 });</code></pre><p>В первом случае приходится привязать кнопку прежде чем навешать обработчик, заставляя придумывать имя для ключа, который, в дальнейшем не используется.</p>
 <h3>Делегированные DOM события для песочницы</h3><p>Как известно из документации к <a href="#Matreshka-bindNode">Matreshka#bindNode</a>, для того, чтоб объявить песочницу нужно всего-навсего связать специальный ключ <code>sandbox</code> с соответствующим элементом. Напоминаем, песочница нужна для того, чтоб привязки внутри экземпляра класса были ограничены одним элементом, не влезая на территорию другого экземпляра и не создавая конфликтов селекторов.</p>
 <p>Синтаксис делегированных событий описан выше:</p>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'sandbox', '.my-div' );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.my-div' );
 this.on( 'click::sandbox(.my-button)', function( evt ) {
     alert( 'clicked ".my-button"' );
 });</code></pre><p>Но, есть более краткий способ записи такого события, без указания ключа <code>sandbox</code></p>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'sandbox', '.my-div' );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.my-div' );
 this.on( 'click::(.my-button)', function( evt ) {
     alert( 'clicked ".my-button"' );
 });</code></pre><p>Оригинальное DOM событие находится под ключём <code>domEvent</code> объекта события.</p>
@@ -8153,7 +8155,7 @@ this[0].trigger( 'y', '"y" event is fired' );</code></pre><h3>Всевозмож
 	}
 };
 
-this.bindElement( 'a', '.my-checkbox', binder );</code></pre><h5></h5>
+this.bindNode( 'a', '.my-checkbox', binder );</code></pre><h5></h5>
 <pre class="prettyprint source lang-js"><code>var binder = {
 	on: function( callback ) {
 		this.onclick = callback;
@@ -8169,7 +8171,7 @@ this.bindElement( 'a', '.my-checkbox', binder );</code></pre><h5></h5>
 	}
 };
 
-this.bindElement( 'a', '.my-checkbox', binder );</code></pre>
+this.bindNode( 'a', '.my-checkbox', binder );</code></pre>
 </article>
 
 
@@ -8230,7 +8232,7 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>var MyXClass = Class({
+<pre class="prettyprint source lang-js"><code>var MyClass = Class({
 	method: function() { ... }
 });</code></pre>
 </article>
