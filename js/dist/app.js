@@ -451,10 +451,15 @@ define('app/article.class',[
 		constructor: function( data ) {
 			this
 				.set( data )
+				.set({
+					commentsShown: false
+				})
 				.bindNode( 'sandbox', 'article[id="'+this.id+'"]' )
 				.bindNode( 'menuItem', 'nav a[href="#'+this.id+'"]' )
 				.bindNode( 'isActive', ':bound(menuItem)', MK.binders.className( 'active' ) )
 				.bindNode( 'expanded', ':bound(menuItem)', MK.binders.className( 'expanded' ) )
+				.bindOptionalNode( 'commentsContainer', ':sandbox .comments-container' )
+				.bindOptionalNode( 'commentsShown', ':bound(commentsContainer)', MK.binders.visibility() )
 				.bindOptionalNode( 'submenu', 'nav ul[data-submenu="'+this.id+'"]' )
 				.bindOptionalNode( 'comment', ':sandbox .comments' )
 				.bindNode( 'pagination', this.bound().appendChild( $( g.app.select( '#pagination-template' ).innerHTML )[0] ) )
@@ -513,10 +518,12 @@ define('app/article.class',[
 				})
 				.on( 'click::comment', function() {
 					var url = document.location.origin + document.location.pathname + '#' + this.id,
-						identifier = '__' + this.id,
-						threadDiv = g.app.bound( 'commentsBlock' );
+						//identifier = '__' + this.id,
+						commentsContainer = this.bound( 'commentsContainer' );
 						
-					if( this.bound().contains( g.app.bound( 'commentsBlock' ) ) ) {
+					this.commentsShown = !this.commentsShown;
+						
+					/*if( this.bound().contains( g.app.bound( 'commentsBlock' ) ) ) {
 						if( g.app.commentsShown = !g.app.commentsShown ) {
 							setTimeout( function() {
 								window.scrollTo( window.pageXOffset, threadDiv.offsetTop - 60 );
@@ -526,11 +533,32 @@ define('app/article.class',[
 					} else {
 						g.app.commentsShown = true;
 						this.bound().appendChild( g.app.bound( 'commentsBlock' ) );
+					}*/
+					
+					
+					//<div class="fb-comments" data-href="http://volodia.com" data-numposts="5" data-colorscheme="light"></div>
+					
+					location.hash = this.id;
+					
+					if( commentsContainer.getAttribute( 'fb-xfbml-state' ) !== 'rendered' ) {
+						commentsContainer.dataset.href = url;
+						commentsContainer.dataset.numposts = 5;
+						commentsContainer.dataset.colorscheme = 'light';
+						commentsContainer.classList.add( 'fb-comments' );
+						
+						if( !window.FB ) {
+							(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&appId=901572946532005&version=v2.0";
+							fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						} else {
+							FB.XFBML.parse( this.bound() );
+						}
 					}
-					
-					location.hash = this.id;					
-					
-					MK.extend( window, {
+					/*MK.extend( window, {
 						disqus_developer: 1, 
 						disqus_identifier: identifier,
 						disqus_title: this.bound( 'comment' ).dataset.title,
@@ -551,11 +579,15 @@ define('app/article.class',[
 								this.page.title = title;
 							}
 						});
-					}
+					}*/
 					
-					setTimeout( function() {
-						window.scrollTo( window.pageXOffset, threadDiv.offsetTop - 60 );
-					}, 500 );
+					/*<div id="fb-root"></div>
+<script></script>*/
+					if( this.commentsShown ) {
+						setTimeout( function() {
+							window.scrollTo( window.pageXOffset, commentsContainer.offsetTop - 60 );
+						});
+					}
 				})
 				.linkProps( 'previousId', 'previous', function( previous ) {
 					return previous ? previous.id : '';
@@ -1254,8 +1286,8 @@ define('app/main.class',[
 				.bindNode( 'isMobile', ':sandbox', MK.binders.className( 'mobile' ) )
 				.bindNode( 'loading', '.loader', MK.binders.className( '!hide' ) )
 				.bindNode( 'navOverlay', '.nav-overlay', MK.binders.className( '!hide' ) )
-				.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
-				.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
+				//.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
+				//.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
 				.bindNode( 'typeBadge', ':sandbox .typo-badge' )
 				.bindNode( 'hideTypoBadge', ':bound(typeBadge)', MK.binders.className( 'hide' ) )
 				.bindNode( 'hashValue', window, {

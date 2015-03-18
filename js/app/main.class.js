@@ -37,8 +37,8 @@ define([
 				.bindNode( 'isMobile', ':sandbox', MK.binders.className( 'mobile' ) )
 				.bindNode( 'loading', '.loader', MK.binders.className( '!hide' ) )
 				.bindNode( 'navOverlay', '.nav-overlay', MK.binders.className( '!hide' ) )
-				.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
-				.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
+				//.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
+				//.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
 				.bindNode( 'typeBadge', ':sandbox .typo-badge' )
 				.bindNode( 'hideTypoBadge', ':bound(typeBadge)', MK.binders.className( 'hide' ) )
 				.bindNode( 'hashValue', window, {
