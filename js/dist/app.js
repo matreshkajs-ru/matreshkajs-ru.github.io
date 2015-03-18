@@ -431,7 +431,7 @@ var requirejs, require, define;
 define("lib/almond", function(){});
 
 /*
-	Matreshka v0.3.2 (2015-03-17)
+	Matreshka v0.3.2 (2015-03-18)
 	JavaScript Framework by Andrey Gubanov
 	Released under the MIT license
 	More info: http://matreshka.io
@@ -513,7 +513,7 @@ define('app/article.class',[
 				})
 				.on( 'click::comment', function() {
 					var url = document.location.origin + document.location.pathname + '#' + this.id,
-						identifier = '_' + this.id,
+						identifier = '__' + this.id,
 						threadDiv = g.app.bound( 'commentsBlock' );
 						
 					if( this.bound().contains( g.app.bound( 'commentsBlock' ) ) ) {
@@ -530,15 +530,14 @@ define('app/article.class',[
 					
 					location.hash = this.id;					
 					
+					MK.extend( window, {
+						disqus_developer: 1, 
+						disqus_identifier: identifier,
+						disqus_title: this.bound( 'comment' ).dataset.title,
+						disqus_url: url
+					});
 					
 					if( !window.DISQUS ) {
-						MK.extend( window, {
-							//disqus_shortname: 'xxx', 
-							disqus_developer: 1, 
-							disqus_identifier: identifier,
-							disqus_title: this.bound( 'comment' ).dataset.title,
-							disqus_url: url
-						});
 						$( 'head' )[0].appendChild( $.create( 'script', {
 							async: true,
 							src: '//' + window.disqus_shortname + '.disqus.com/embed.js'					
@@ -548,7 +547,7 @@ define('app/article.class',[
 							reload: true,
 							config: function () {  
 								this.page.identifier = identifier;
-								this.page.url = identifier;
+								this.page.url = url;
 								this.page.title = title;
 							}
 						});
