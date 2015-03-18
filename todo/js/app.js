@@ -1,6 +1,6 @@
 // This is documentation for the implementation of the [TodoMVC](http://todomvc.com)  using the [Matreshka.js](http://ru.matreshka.io) framework as a basis. The working version is located [on this page](../../).
 
-// As it is required by the specification of TodoMVC, assign the codes of keys to the corresponding variables. After that wait for the loading of DOM tree.
+// As it is required by the specification of TodoMVC, assign the codes of keys to the corresponding variables.
 var ENTER_KEY = 13;
 var ESC_KEY = 27;
 

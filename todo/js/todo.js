@@ -6,19 +6,19 @@ var Todo = Class({
 		this
 			// Assign the default values and add the keys ``"title"`` and ``"completed"`` to the list of the keys which are responsible for the data (see [jset](http://matreshka.io/#Matreshka.Object-jset)).
 			// The ``"title"`` property by default is an empty string.
-			// The ``"completed"`` property by default is false.
+			// The ``"completed"`` property by default is ``false``.
 			.jset({
 				title: '',
 				completed: false
 			}) 
-			// Now assign the data which the constructor has received as an argument to the properties, overwriting the default values  (for example, ``{ title: 'Do it!' }``).
+			// Now assign the data which the constructor has received as an argument, overwriting the default values  (for example, ``{ title: 'Do it!' }``).
 			.set( data )
 			// The ``"visible"`` property is responsible for the visibility of an element from the todo list on the page. 
 			.set( 'visible', true )
 			// Wait for the ``"render"`` event using the [on](http://matreshka.io/#Matreshka-on) method. The event fires when the element corresponding to the instance of the class is rendered.
 			.on( 'render', function( evt ) {
 				this
-					// The binding of the elements that do not require the assignment of the binder (binder). The [defaultBinders](http://matreshka.io/#Matreshka.Array-defaultBinders) are used here if it is possible.
+					// The binding of the elements that do not require the assignment of the binder (binder). The [defaultBinders](http://matreshka.io/#Matreshka.defaultBinders) are used here if it is possible.
 					// * The ``"completed"`` property is bound to the checkbox with ``toggle`` class
 					// * The ``"edit"`` property is bound to the field (``input type=text``) with ``edit`` class
 					// * The ``"destroy"`` property is bound to the element with ``destroy`` class which does not have a default binder. It means that the element is simply associated with the property without synchronizing with its value.
@@ -46,8 +46,8 @@ var Todo = Class({
 						this.$bound( 'edit' ).focus();
 					})
 					// Add the ``"keyup"`` event handler to the element bound to the ``"edit"`` property.
-					// If the ``Esc`` key is pressed, return from the edit mode to the normal mode.
-					// If the ``Enter`` key is pressed, delete unnecessary spaces from the ``"edit"`` property value and assign it to the ``"title"`` property. Then return from the edit mode to the normal mode. If the value is an empty string, call the ``readytodie`` event which is listened by the ``Todos`` class.
+					// If the ``Esc`` key is pressed, go back from the edit mode to the normal mode.
+					// If the ``Enter`` key is pressed, delete unnecessary spaces from the ``"edit"`` property value and assign it to the ``"title"`` property. Then go back from the edit mode to the normal mode. If the value is an empty string, call the ``readytodie`` event which is listened by the ``Todos`` class.
 					.on( 'keyup::edit', function( evt ) {
 						var editValue;
 						if( evt.which === ESC_KEY ) {

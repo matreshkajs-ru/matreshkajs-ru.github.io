@@ -113,9 +113,9 @@ var Todos = Class({
 					return todo.completed;
 				}), { silent: true } );
 				
-				this.set( 'completedLength', this.filter( function( todo ) {
+				this.completedLength = this.filter( function( todo ) {
 					return todo.completed;
-				}).length );
+				}).length;
 			})
 			// Если пункты добавлены или удалены или если свойство ``"completed"`` помеялось у какого-нибудь пункта или если изменилось значение свойства ``"allCompleted"``, готовим представление нашего списка todo для того, чтоб затем поместить его в локальное хранилище (``localStorage``).
 			.on( 'modify @change:completed change:allCompleted', function() {

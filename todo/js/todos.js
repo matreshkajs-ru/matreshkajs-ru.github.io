@@ -1,10 +1,10 @@
-// **todos.js** - s the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.
+// **todos.js** - is the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.
 "use strict";
 var Todos = Class({
 	'extends': MK.Array,
-	// [Model](http://matreshka.io/#Matreshka.Array-Model) defines the class of elements which will be included into the collection. In this case, the elements of the collection will be instances of the [Todo](todo.html) class.
+	// [Model](http://matreshka.io/#Matreshka.Array-Model) defines the class of items which will be included into the collection. In this case, the items of the collection will be instances of the [Todo](todo.html) class.
 	Model: Todo,
-	//  Defining the [itemRenderer](http://matreshka.io/#Matreshka.Array-itemRenderer) property, you create a renderer for every added element of the array. In this case, the element includes the template with id=todo_item_template (see HTML code).
+	//  Defining the [itemRenderer](http://matreshka.io/#Matreshka.Array-itemRenderer) property, you create a renderer for every added item of the array (see HTML code).
 	itemRenderer: '#todo_item_template',
 	constructor: function() {
 		var self = this
@@ -12,14 +12,14 @@ var Todos = Class({
 			.linkProps( 'leftLength', 'length completedLength', function( length, completedLength ) {
 				return length - completedLength;
 			})
-			// The ``"bindings"`` method adds bindings between the properties of the class instance and DOM elements. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and create the todo elements from it with the help of the [recreate](http://matreshka.io/#Matreshka.Array-recreate) method.
+			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#Matreshka.Array-recreate) method.
 
 			.bindings()
 			.events()
 			.recreate( JSON.parse( localStorage[ 'todos-matreshka' ] || '[]' ) )
 		;
 		
-		// We use the [director](https://github.com/flatiron/director) library for routing, as it is required by the specification of TodoMVC. When `location.hash`` is changed, its value is added to the ``"route"`` property.
+		// We use the [director](https://github.com/flatiron/director) library for routing, as it is required by the specification of TodoMVC. When ``location.hash`` is changed, its value is added to the ``"route"`` property.
 		Router({
 			':state': function( state ) {
 				self.route = state;
@@ -33,7 +33,7 @@ var Todos = Class({
 		return this
 			// Declare a sandbox
 			.bindNode( 'sandbox', '#todoapp' )
-			// Bind some other elements (``main``, ``footer``, etc.). The ``:sandbox`` selector is not used because we access the elements by ID.
+			// Bind some other nodes (``main``, ``footer``, etc.). The ``:sandbox`` selector is not used because we access the elements by their ID.
 			.bindNode({
 				main: '#main',
 				footer: '#footer',
@@ -42,12 +42,12 @@ var Todos = Class({
 				allCompleted: '#toggle-all',
 				clearCompleted: '#clear-completed'
 			})
-			// The next call of [bindNode](http://matreshka.io/#Matreshka-bindNode) makes the visibility of elements dependable on the values of corresponding properties (if the value runs a non-strict  test for equality ``true``, the element will be shown, otherwise - hidden).
+			// The next call of [bindNode](http://matreshka.io/#Matreshka-bindNode) makes the visibility of HTML nodes dependable on the values of corresponding properties (if the value passes a non-strict test for equality ``true``, the element will be shown, otherwise - hidden).
 			.bindNode({
 				completedLength: ':bound(clearCompleted)',
 				length: ':bound(main), :bound(footer)'
 			}, MK.binders.visibility() )
-			// The next two bindings change HTML of the bound elements depending on a value of the corresponding property.
+			// The next two bindings change inner HTML of the bound nodes depending on a value of the corresponding properties.
 			.bindNode( 'completedLength', ':bound(clearCompleted)', {
 				setValue: function( v ) {
 					$( this ).html( 'Clear completed (' + v + ')' );
@@ -75,7 +75,7 @@ var Todos = Class({
 			.onDebounce( 'change:JSON', function( evt ) {
 				localStorage[ 'todos-matreshka' ] = evt.value;
 			})
-			// If the Enter key is pressed in the input bound to the ``“newTodo"`` property and the value of this property which is cleared from spaces is not an empty string, add a new todo item using the ``push`` method.
+			// If the Enter key is pressed in the input bound to the ``“newTodo"`` property and the trimmed value of this property is not an empty string, add a new todo item using the ``push`` method.
 			.on( 'keyup::newTodo', function( evt ) {
 				var newTodo;
 				if( evt.which === ENTER_KEY ) {
@@ -88,7 +88,7 @@ var Todos = Class({
 					this.newTodo = '';
 				}
 			})
-			// When the value of the ``"allCompleted"`` property is changed, we change ``"completed"`` for all todo to the same value. The ``"silent"`` flag means that the ``"change:completed"`` event must not be called.
+			// When the value of the ``"allCompleted"`` property is changed, we change ``"completed"`` for all todo items to the same value. The ``"silent"`` flag means that the ``"change:completed"`` event must not be triggered.
 			.on( 'change:allCompleted', function( evt ) {
 				this.forEach( function( todo ) {
 					todo.set( 'completed', evt.value, { silent: true });
@@ -96,7 +96,7 @@ var Todos = Class({
 				
 				this.completedLength = evt.value ? this.length : 0;
 			})
-			// The click of the mouse on the ``'#clear-completed'`` element deletes all the performed items using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
+			// A mouse click on the ``'#clear-completed'`` node deletes all the performed items using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
 			.on( 'click::clearCompleted', function() {
 				this.forEach( function( todo ) {
 					if( todo.completed ) {
@@ -104,7 +104,7 @@ var Todos = Class({
 					}
 				}, this );
 			})
-			// If some element from the todo list has generated the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array#pull) method.
+			// If some element from the todo list has fired the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array#pull) method.
 			.on( '@readytodie', function( todo ) {
 				this.pull( todo );
 			})
@@ -114,9 +114,9 @@ var Todos = Class({
 					return todo.completed;
 				}), { silent: true } );
 				
-				this.set( 'completedLength', this.filter( function( todo ) {
+				this.completedLength = this.filter( function( todo ) {
 					return todo.completed;
-				}).length );
+				}).length;
 			})
 			// If some items have been added or deleted or the ``"completed"`` property of one of the items has been changed or the value of the ``"allCompleted"`` property has been changed, prepare the representation of our todo list in order to place it into the ``localStorage`` afterwards.
 			.on( 'modify @change:completed change:allCompleted', function() {
