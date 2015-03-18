@@ -547,6 +547,16 @@ define('app/article.class',[
 						commentsContainer.classList.add( 'fb-comments' );
 						
 						if( !window.FB ) {
+							window.fbAsyncInit = function() {
+								FB.Event.subscribe('comment.create', function() {
+									g.app.notifier.notify( 'comment.create', 'Comment is added' );
+								});
+								
+								FB.Event.subscribe('comment.remove', function() {
+									g.app.notifier.notify( 'comment.remove', 'Comment is removed' );
+								});
+							};
+							
 							(function(d, s, id) {
 							var js, fjs = d.getElementsByTagName(s)[0];
 							if (d.getElementById(id)) return;
@@ -829,6 +839,55 @@ define('app/typo.class',[
 					this.shown = false;
 				}
 			}, this );
+		}
+	});
+});
+
+define('app/notifier.class',[
+	'globals',
+	'matreshka',
+	'balalaika'
+], function( g, MK, $ ) {
+	
+	return MK.Class({
+		'extends': MK.Object,
+		constructor: function( data ) {
+			this
+				.set({
+					formURL: '//docs.google.com/forms/d/1hxQBT5pyq5tLLWH0dWFtwUSLocFC3zxqb9eDJa9p_jE/formResponse',
+					typeName: 'entry.1972481987',
+					textName: 'entry.1777335671',
+					pageName: 'entry.339184258'
+				})
+				.bindNode( 'sandbox', 'form.notification-form' )
+				.bindNode({
+					type: ':sandbox input.type',
+					text: ':sandbox input.text',
+					page: ':sandbox input.page'
+				})
+				.bindNode({
+					typeName: ':bound(type)',
+					textName: ':bound(text)',
+					pageName: ':bound(page)',
+				}, {
+					on: null,
+					getValue: null,
+					setValue: function( v ) {
+						this.name = v;
+					}
+				}) 
+				.bindNode( 'formURL', ':sandbox', {
+					setValue: function( v ) {
+						this.action = v;
+					}
+				})
+			;
+		},
+		notify: function( type, text ) {
+			this.type = type;
+			this.text = text;
+			this.page = location.href;
+			this.bound( 'sandbox' ).submit();
 		}
 	});
 });
@@ -1254,11 +1313,12 @@ define('app/main.class',[
 	'app/articles.class',
 	'app/typedefs.class',
 	'app/typo.class',
+	'app/notifier.class',
 	'app/search.class',
 	'lib/header-hider',
 	'lib/prettify',
 	'lib/embed-jsbin'
-], function( g, MK, $, Articles, Typedefs, Typo, Search, __1, __2, embed ) {
+], function( g, MK, $, Articles, Typedefs, Typo, Notifier, Search, __1, __2, embed ) {
 	
 	return MK.Class({
 		'extends': MK.Object,
@@ -1279,6 +1339,7 @@ define('app/main.class',[
 					articles: new Articles,
 					typedefs: new Typedefs,
 					typo: new Typo,
+					notifier: new Notifier,
 					search: new Search
 				})
 				.bindNode( 'win', window )

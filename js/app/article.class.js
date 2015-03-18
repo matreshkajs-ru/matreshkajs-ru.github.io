@@ -105,6 +105,16 @@ define([
 						commentsContainer.classList.add( 'fb-comments' );
 						
 						if( !window.FB ) {
+							window.fbAsyncInit = function() {
+								FB.Event.subscribe('comment.create', function() {
+									g.app.notifier.notify( 'comment.create', 'Comment is added' );
+								});
+								
+								FB.Event.subscribe('comment.remove', function() {
+									g.app.notifier.notify( 'comment.remove', 'Comment is removed' );
+								});
+							};
+							
 							(function(d, s, id) {
 							var js, fjs = d.getElementsByTagName(s)[0];
 							if (d.getElementById(id)) return;

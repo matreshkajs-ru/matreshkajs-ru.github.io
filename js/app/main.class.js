@@ -5,11 +5,12 @@ define([
 	'app/articles.class',
 	'app/typedefs.class',
 	'app/typo.class',
+	'app/notifier.class',
 	'app/search.class',
 	'lib/header-hider',
 	'lib/prettify',
 	'lib/embed-jsbin'
-], function( g, MK, $, Articles, Typedefs, Typo, Search, __1, __2, embed ) {
+], function( g, MK, $, Articles, Typedefs, Typo, Notifier, Search, __1, __2, embed ) {
 	"use strict";
 	return MK.Class({
 		'extends': MK.Object,
@@ -30,6 +31,7 @@ define([
 					articles: new Articles,
 					typedefs: new Typedefs,
 					typo: new Typo,
+					notifier: new Notifier,
 					search: new Search
 				})
 				.bindNode( 'win', window )
