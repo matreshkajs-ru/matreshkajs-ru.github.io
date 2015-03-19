@@ -92,6 +92,18 @@
 					</a>
 				</li>
 			
+				<li>
+					<a href="#Matreshka-$sandbox" title="Свойство содержит HTML песочницу в виде коллекции (jQuery, Zepto, Balalaika)" data-name="$sandbox">
+						$sandbox 
+					</a>
+				</li>
+			
+				<li>
+					<a href="#Matreshka-sandbox" title="Свойство содержит HTML песочницу" data-name="sandbox">
+						sandbox 
+					</a>
+				</li>
+			
 			
 				<li>
 					<a href="#Matreshka-on" title="Добавляет обработчик события" data-name="on">
@@ -1037,6 +1049,54 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert(object.isMK);</code></pre>
 	<a class="comments" data-id="Matreshka-isMK" data-title="Свойство Matreshka-isMK">Задать вопрос<i></i></a>
+<div class="comments-container"></div>
+</article>
+<article class="item property" id="Matreshka-$sandbox">
+	<h2>
+		<a href="#Matreshka-$sandbox">
+			
+			<span class="memberof">Matreshka#</span>$sandbox</a><span class="type">:
+				<span data-type="$nodes">$nodes</span>
+			</span>
+			
+			<!-- <span data-type="$nodes">$nodes</span></span>-->
+		
+	</h2>
+	<div class="summary"><p>Свойство содержит HTML песочницу в виде коллекции (jQuery, Zepto, Balalaika)</p></div>
+	<div class="description"></div>
+	
+
+	 
+	<h4>Примеры</h4>
+  
+<h5></h5>
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
+this.$sandbox; // то же самое, что и $( '.app' )</code></pre>
+	<a class="comments" data-id="Matreshka-$sandbox" data-title="Свойство Matreshka-$sandbox">Задать вопрос<i></i></a>
+<div class="comments-container"></div>
+</article>
+<article class="item property" id="Matreshka-sandbox">
+	<h2>
+		<a href="#Matreshka-sandbox">
+			
+			<span class="memberof">Matreshka#</span>sandbox</a><span class="type">:
+				<span data-type="node">node</span>
+			</span>
+			
+			<!-- <span data-type="node">node</span></span>-->
+		
+	</h2>
+	<div class="summary"><p>Свойство содержит HTML песочницу</p></div>
+	<div class="description"></div>
+	
+
+	 
+	<h4>Примеры</h4>
+  
+<h5></h5>
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
+this.sandbox; // то же самое, что и $( '.app' )[0]</code></pre>
+	<a class="comments" data-id="Matreshka-sandbox" data-title="Свойство Matreshka-sandbox">Задать вопрос<i></i></a>
 <div class="comments-container"></div>
 </article> 
 	
@@ -2547,7 +2607,7 @@ this.unbindNode( temporaryBindings );</code></pre>
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element' );
-this.boundAll( 'myKey' ); // вернет $( '.my-element' )</code></pre><h5><p>Возврат песочницы</p></h5>
+this.boundAll( 'myKey' ); // вернет $( '.my-element' )</code></pre><h5><p>Возврат песочницы (вместо этого, можно использовать свойство <a href="#Matreshka-$sandbox">Matreshka#$sandbox</a>)</p></h5>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
 this.boundAll(); // вернет $( '.app' )</code></pre>
 	
@@ -2649,7 +2709,7 @@ this.boundAll(); // вернет $( '.app' )</code></pre>
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element' );
-this.bound( 'mykey' ); // вернет $( '.my-element' )[0]</code></pre><h5><p>Возврат &quot;песочницы&quot;</p></h5>
+this.bound( 'mykey' ); // вернет $( '.my-element' )[0]</code></pre><h5><p>Возврат песочницы (вместо этого, можно использовать свойство <a href="#Matreshka-sandbox">Matreshka#sandbox</a>)</p></h5>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
 this.bound(); // вернет $( '.app' )[0]</code></pre>
 	
