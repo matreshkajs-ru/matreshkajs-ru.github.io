@@ -955,7 +955,8 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
                 this.innerHTML = v;
             }
         });
-        this.on( 'change:x', () => console.log( 'x изменен на ' + this.x ) );
+        this.on( 'change:x', () =>
+            console.log( 'x изменен на ' + this.x ) );
     }
 }</code></pre></blockquote>
 <p><a href="http://jsbin.com/lalerebepo/2/edit?js,output">Живой пример</a> (нажмите кнопку "Run with JS", чтобы пример запустился)</p>
