@@ -948,16 +948,14 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <blockquote>
 <p>Матрешка использует объектно-ориентированный подход основанный на классах, которые зарекомендовали себя самой с лучшей стороны в большинстве языков программирования: Python, C#, Java и многих других. Такое решение позволяет легко перейти на новые возможности синтаксиса JavaScript, описанные в стандарте ECMAScript 2015 и поддерживаемые Матрешкой. Проекты типа <a href="http://babeljs.io/">Babel</a> уже сегодня позволяют использовать крутой синтаксис JS нового поколения.</p>
 <pre class="prettyprint source lang-js"><code>class Application extends Matreshka {
-    constructor: function() {
+    constructor() {
         this.bindNode( 'x', '.my-input' );
         this.bindNode( 'x', '.my-output', {
-            setValue: function( v ) {
+            setValue( v ) {
                 this.innerHTML = v;
             }
         });
-        this.on( 'change:x', function() {
-            console.log( 'x изменен на ' + this.x );
-        });
+        this.on( 'change:x', () => console.log( 'x изменен на ' + this.x ) );
     }
 }</code></pre></blockquote>
 <p><a href="http://jsbin.com/lalerebepo/2/edit?js,output">Живой пример</a> (нажмите кнопку "Run with JS", чтобы пример запустился)</p>
@@ -1065,6 +1063,13 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 	<div class="summary"><p>Свойство содержит HTML песочницу в виде коллекции (jQuery, Zepto, Balalaika)</p></div>
 	<div class="description"></div>
 	
+<h4>Ссылки</h4>
+<ul class="see">
+	
+		<li><a href="#Matreshka-bindNode">Matreshka#bindNode</a>
+	
+</ul>
+
 
 	 
 	<h4>Примеры</h4>
@@ -1089,6 +1094,13 @@ this.$sandbox; // то же самое, что и $( '.app' )</code></pre>
 	<div class="summary"><p>Свойство содержит HTML песочницу</p></div>
 	<div class="description"></div>
 	
+<h4>Ссылки</h4>
+<ul class="see">
+	
+		<li><a href="#Matreshka-bindNode">Matreshka#bindNode</a>
+	
+</ul>
+
 
 	 
 	<h4>Примеры</h4>

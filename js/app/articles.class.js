@@ -29,7 +29,7 @@ define([
 				.on( 'hashchange::win', function() {
 					var active;
 					for( var i = 0; i < this.length; i++ ) {
-						if( this[i].id === location.hash.replace('#','') ) {
+						if( this[i].id === location.hash.replace( '#', '' ) ) {
 							active = this[i];
 							break;
 						}

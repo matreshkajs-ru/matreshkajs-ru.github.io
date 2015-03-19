@@ -49,6 +49,11 @@ define([
 						return location.hash.replace( '#', '' );
 					}
 				})
+				.bindNode( 'hashValue', ':sandbox .another-language', {
+					setValue: function( v ) {
+						this.href = this.href.split( '#' )[0] + '#' + v;
+					}
+				})
 				.bindNode( 'view', 'nav .view-switcher', {
 					on: 'click',
 					getValue: function() {

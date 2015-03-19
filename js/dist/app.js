@@ -431,7 +431,7 @@ var requirejs, require, define;
 define("lib/almond", function(){});
 
 /*
-	Matreshka v0.3.2 (2015-03-18)
+	Matreshka v0.3.2 (2015-03-19)
 	JavaScript Framework by Andrey Gubanov
 	Released under the MIT license
 	More info: http://matreshka.io
@@ -647,7 +647,7 @@ define('app/articles.class',[
 				.on( 'hashchange::win', function() {
 					var active;
 					for( var i = 0; i < this.length; i++ ) {
-						if( this[i].id === location.hash.replace('#','') ) {
+						if( this[i].id === location.hash.replace( '#', '' ) ) {
 							active = this[i];
 							break;
 						}
@@ -1355,6 +1355,11 @@ define('app/main.class',[
 					on: 'hashchange',
 					getValue: function() {
 						return location.hash.replace( '#', '' );
+					}
+				})
+				.bindNode( 'hashValue', ':sandbox .another-language', {
+					setValue: function( v ) {
+						this.href = this.href.split( '#' )[0] + '#' + v;
 					}
 				})
 				.bindNode( 'view', 'nav .view-switcher', {
