@@ -431,7 +431,7 @@ var requirejs, require, define;
 define("lib/almond", function(){});
 
 /*
-	Matreshka v0.4.0 (2015-03-20)
+	Matreshka v0.4.1 (2015-03-20)
 	JavaScript Framework by Andrey Gubanov
 	Released under the MIT license
 	More info: http://matreshka.io
