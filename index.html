@@ -884,7 +884,7 @@
 	<section id="promo">
 	<article id="home">
 		<img src="img/mk1-logo.svg">
-		<h1>Matreshka.js 0.4</h1>
+		<h1>Matreshka.js 1.0</h1>
 		<p>JavaScript фреймворк для программистов</p>
 		<pre class="prettyprint lang-html" style="max-width: 540px; margin: 0 auto; text-align: left;"><code>&lt;script src=&quot;matreshka.min.js&quot;&gt;&lt;/script&gt;
 &lt;input type=&quot;text&quot; class=&quot;my-input&quot;&gt;
@@ -892,7 +892,7 @@
 var app = new Matreshka;
 app.bindNode( 'x', '.my-input' );
 app.x = 'Двустороннее связывание данных в JS? Серьезно?';
-&lt;/script&gt;</code></pre><!--Two-way data binding in JS? O rly?-->
+&lt;/script&gt;</code></pre>
 		<p>
 			<a href="https://raw.githubusercontent.com/finom/matreshka/master/matreshka.min.js" download class="download-btn">Скачать <i></i></a>
 			<a href="https://github.com/finom/matreshka" class="github-btn">Github <i></i></a>
@@ -8679,8 +8679,9 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 
 </section>
 <section>
-<article id="whats-new"><h2><a href="#whats-new">Что нового?</a></h2><h3>Матрешка 1.0 (скоро)</h3><ul>
-<li>Убраны предупреждения об использовании устаревших методов и событий, очищен код.</li>
+<article id="whats-new"><h2><a href="#whats-new">Что нового?</a></h2><h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.0">Матрешка 1.0</a></h3><ul>
+<li>Убраны предупреждения об использовании устаревших методов и событий, очищен код</li>
+<li>Несколько небольших исправлений</li>
 </ul>
 <h3><a href="https://github.com/finom/matreshka/releases/tag/v0.4.1">Матрешка 0.4.1</a></h3><ul>
 <li>Устранена проблема со сборкой</li>
@@ -8723,11 +8724,11 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 <li>Вызывать событие <code>change</code>, если при привязке Матрешка меняет значение свойства на состояние элемента (если свойство не определено и не передан флаг <code>assignDefaultValue: false</code>)</li>
 <li>Новые селекторы: <code>:sandbox</code> и <code>:bound(KEY)</code></li>
 <li>Поддержка свойства <code>attributes</code> для функции <code>Balalaika.create</code></li>
-<li>Экспериментальный шаблонизатор для <a href="#Matreshka.Array-itemRenderer">Matreshka.Array#itemRenderer</a> если <a href="#Matreshka.Array-itemRenderer">Matreshka.Array#itemRenderer</a> установлен, как <code>true</code></li>
+<li>Экспериментальный шаблонизатор для <a href="#Matreshka.Array-itemRenderer">Matreshka.Array#itemRenderer</a> если <a href="#Matreshka.Array-useBindingsParser">Matreshka.Array#useBindingsParser</a> установлен, как <code>true</code></li>
 <li>Перенесены все привязчики в объект <a href="#Matreshka.binders">Matreshka.binders</a></li>
 <li><a href="#Matreshka.Array-pull">Matreshka.Array#pull</a> теперь поддерживает объект в качестве аргумента</li>
 <li>Короткая запись для делегированных событий DOM внутри песочницы (click::(.selector) вместо click::sandbox(.selector))</li>
-<li>Поддержка цикла <code>for..of</code> для {@link Matreshka.ArrayЪ и {@link Matreshka.ObjectЪ</li>
+<li>Поддержка цикла <code>for..of</code> для <a href="#Matreshka.Array">Matreshka.Array</a> и <a href="#Matreshka.Object">Matreshka.Object</a></li>
 <li>Свойство <code>domEvent</code> содержащее объект события для событий DOM</li>
 <li>Делегированные DOM события (<code>this.on( 'click::something(.x &gt; .y)' )</code>)</li>
 </ul>
@@ -8735,7 +8736,7 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 <ul>
 <li>Все методы, имя которых начинается с <code>silent</code> (<code>silentPush</code>, <code>silentSplice</code>, <code>silentSort</code> ...) удалены. Для этих целей теперь используются методы с нижним подчеркиванием в конце имени и флагом <code>silent</code> (например, <code>this.push_(1,2,3, {silent: true})</code>)</li>
 <li>Метод <code>Matreshka#initMK</code> удален, теперь используется ленивая инициализация</li>
-<li>Метод <code>Matreshka#defineNotEnum</code> удален по причине неиспользуемости</li>
+<li>Метод <code>Matreshka#defineNotEnum</code> удален по причине отсутствия в нем потребности</li>
 <li>Matreshka.Array#initializeSmartArray -&gt; <a href="#Matreshka.Array-rerender">Matreshka.Array#rerender</a></li>
 <li>Matreshka#setMediator -&gt; <a href="#Matreshka-mediate">Matreshka#mediate</a></li>
 <li>Matreshka#bindElement -&gt; <a href="#Matreshka-bindNode">Matreshka#bindNode</a></li>
@@ -8767,7 +8768,7 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 <li>Привязанные HTML элементы не обновлялись после вызова <a href="#Matreshka-mediate">Matreshka#mediate</a></li>
 <li>Фиксы для Internet Explorer 8</li>
 <li>Matreshka.lookForBinder теперь возвращает <code>undefined</code> если байндер не найден</li>
-<li>Генерировать события модификации Matreshka.Array <strong>только тогда</strong> коллекция изменилась</li>
+<li>Генерировать события модификации Matreshka.Array только когда коллекция изменилась</li>
 </ul>
 <p><strong>Изменения в коде</strong></p>
 <ul>
