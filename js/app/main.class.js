@@ -92,7 +92,7 @@ define([
 						
 						scrollTo( fromLeft, fromTop );
 					}
-				})
+				}, 200 )
 				.on( 'change:view', function() {
 					var	fromLeft = window.pageXOffset,
 						fromTop;
