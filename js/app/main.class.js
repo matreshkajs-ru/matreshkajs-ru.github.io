@@ -73,15 +73,23 @@ define([
 					}
 				})
 				.bindNode( 'view', 'body', MK.binders.attribute( 'data-view' ) )
-				.on( 'scroll::win', function() {
+				.onDebounce( 'scroll::win', function() {
 					if( this.view === 'all' ) {
 						var fromTop = window.pageYOffset,
 							fromLeft = window.pageXOffset,
 							cur = this.articles.filter(function( article ){
 								return article.bound().offsetTop < fromTop + 50;
-							});
+							}),
+							hash;
+							
 						cur = cur[cur.length-1];
-						location.hash = cur ? cur.id : "";
+						
+						hash = cur ? cur.id : "";
+						
+						if( location.hash.replace( '#', '' ) != hash ) {
+							location.hash = hash;
+						} 
+						
 						scrollTo( fromLeft, fromTop );
 					}
 				})
