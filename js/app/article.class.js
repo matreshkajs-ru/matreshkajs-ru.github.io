@@ -23,7 +23,7 @@ define([
 				.bindNode( 'pagination', this.bound().appendChild( $( g.app.select( '#pagination-template' ).innerHTML )[0] ) )
 				.bindNode( 'name', ':bound(menuItem)', {
 					getValue: function() {
-						return this.dataset.name || this.textContent;
+						return this.getAttribute( 'data-name' ) || this.textContent;
 					}
 				})
 				.bindNode({
@@ -99,9 +99,14 @@ define([
 					location.hash = this.id;
 					
 					if( commentsContainer.getAttribute( 'fb-xfbml-state' ) !== 'rendered' ) {
-						commentsContainer.dataset.href = url;
-						commentsContainer.dataset.numposts = 5;
-						commentsContainer.dataset.colorscheme = 'light';
+						MK.each({
+							href: url,
+							numposts: 5,
+							colorscheme: 'light'
+						}, function( v, key ) {
+							commentsContainer.setAttribute( 'data-' + key, v );
+						})
+						
 						commentsContainer.classList.add( 'fb-comments' );
 						
 						if( !window.FB ) {

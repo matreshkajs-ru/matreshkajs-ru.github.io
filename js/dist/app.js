@@ -465,7 +465,7 @@ define('app/article.class',[
 				.bindNode( 'pagination', this.bound().appendChild( $( g.app.select( '#pagination-template' ).innerHTML )[0] ) )
 				.bindNode( 'name', ':bound(menuItem)', {
 					getValue: function() {
-						return this.dataset.name || this.textContent;
+						return this.getAttribute( 'data-name' ) || this.textContent;
 					}
 				})
 				.bindNode({
@@ -541,9 +541,14 @@ define('app/article.class',[
 					location.hash = this.id;
 					
 					if( commentsContainer.getAttribute( 'fb-xfbml-state' ) !== 'rendered' ) {
-						commentsContainer.dataset.href = url;
-						commentsContainer.dataset.numposts = 5;
-						commentsContainer.dataset.colorscheme = 'light';
+						MK.each({
+							href: url,
+							numposts: 5,
+							colorscheme: 'light'
+						}, function( v, key ) {
+							commentsContainer.setAttribute( 'data-' + key, v );
+						})
+						
 						commentsContainer.classList.add( 'fb-comments' );
 						
 						if( !window.FB ) {
@@ -697,7 +702,7 @@ define('app/typedefs.class',[
 			
 			$( 'article[data-typedef]' ).forEach( function( node ) {
 				this.push({
-					typedef: node.dataset.typedef
+					typedef: node.getAttribute( 'data-typedef' )
 				});
 			}, this );
 			
@@ -711,7 +716,7 @@ define('app/typedefs.class',[
 				})
 				.on( 'click::([data-type])', function( evt ) {
 					this.forEach( function( typedef ) {
-						typedef.isShown = typedef.typedef === evt.target.dataset.type;
+						typedef.isShown = typedef.typedef === evt.target.getAttribute( 'data-type' );
 					});
 				})
 				.on( '@change:isShown', function( evt ) {

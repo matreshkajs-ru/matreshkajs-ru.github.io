@@ -12,7 +12,7 @@ define([
 			
 			$( 'article[data-typedef]' ).forEach( function( node ) {
 				this.push({
-					typedef: node.dataset.typedef
+					typedef: node.getAttribute( 'data-typedef' )
 				});
 			}, this );
 			
@@ -26,7 +26,7 @@ define([
 				})
 				.on( 'click::([data-type])', function( evt ) {
 					this.forEach( function( typedef ) {
-						typedef.isShown = typedef.typedef === evt.target.dataset.type;
+						typedef.isShown = typedef.typedef === evt.target.getAttribute( 'data-type' );
 					});
 				})
 				.on( '@change:isShown', function( evt ) {
