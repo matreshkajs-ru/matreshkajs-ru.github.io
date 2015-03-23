@@ -3,9 +3,6 @@ css/screen.css
 js/dist/app.min.js
 js/dist/app.js
 js/dist/app.map
-js/matreshka.js
-js/matreshka.min.js
-js/matreshka.min.map
 fonts/Roboto-Light.ttf
 fonts/Roboto-Regular.ttf
 fonts/Roboto-Bold.ttf
