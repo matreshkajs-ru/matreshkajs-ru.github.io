@@ -26,10 +26,11 @@ define([
 			this
 				.bindNode( 'header', 'header .inner', MK.binders.innerHTML() )
 				.bindNode( 'win', window )
-				.on( 'hashchange::win', function() {
+				.linkProps( 'hashValue', [ g.app, 'hashValue' ] )
+				.on( 'change:hashValue', function() {
 					var active;
 					for( var i = 0; i < this.length; i++ ) {
-						if( this[i].id === location.hash.replace( '#', '' ) ) {
+						if( this[i].id === this.hashValue ) {
 							active = this[i];
 							break;
 						}

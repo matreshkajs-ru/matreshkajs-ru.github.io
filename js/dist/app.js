@@ -431,7 +431,7 @@ var requirejs, require, define;
 define("lib/almond", function(){});
 
 /*
-	Matreshka v1.0.0 (2015-03-23)
+	Matreshka v1.0.0 (2015-03-24)
 	JavaScript Framework by Andrey Gubanov
 	Released under the MIT license
 	More info: http://matreshka.io
@@ -454,7 +454,9 @@ define('app/article.class',[
 				.set({
 					commentsShown: false
 				})
+				.linkProps( 'ieVersion', [ g.app, 'ieVersion' ] )
 				.bindNode( 'sandbox', 'article[id="'+this.id+'"]' )
+				.bindOptionalNode( 'ieVersion', ':sandbox .comments', MK.binders.className( 'hide' ) )
 				.bindNode( 'menuItem', 'nav a[href="#'+this.id+'"]' )
 				.bindNode( 'isActive', ':bound(menuItem)', MK.binders.className( 'active' ) )
 				.bindNode( 'expanded', ':bound(menuItem)', MK.binders.className( 'expanded' ) )
@@ -649,10 +651,11 @@ define('app/articles.class',[
 			this
 				.bindNode( 'header', 'header .inner', MK.binders.innerHTML() )
 				.bindNode( 'win', window )
-				.on( 'hashchange::win', function() {
+				.linkProps( 'hashValue', [ g.app, 'hashValue' ] )
+				.on( 'change:hashValue', function() {
 					var active;
 					for( var i = 0; i < this.length; i++ ) {
-						if( this[i].id === location.hash.replace( '#', '' ) ) {
+						if( this[i].id === this.hashValue ) {
 							active = this[i];
 							break;
 						}
@@ -1337,8 +1340,18 @@ define('app/main.class',[
 						return this.innerHTML;
 					} 
 				})
+				.bindNode( 'hashValue', window, {
+					on: 'hashchange',
+					getValue: function() {
+						return location.hash.replace( '#', '' );
+					}
+				})
 				.set({
-					view: localStorage.view || 'all',
+					ieVersion: document.documentMode,
+					isOldIE: document.documentMode <= 9
+				})
+				.set({
+					view: this.isOldIE ? 'per-one' : localStorage.view || 'all',
 					hideTypoBadge: localStorage.hideTypoBadge,
 					isMobile: /mobile|android/i.test( navigator.userAgent ),
 					articles: new Articles,
@@ -1352,22 +1365,16 @@ define('app/main.class',[
 				.bindNode( 'isMobile', ':sandbox', MK.binders.className( 'mobile' ) )
 				.bindNode( 'loading', '.loader', MK.binders.className( '!hide' ) )
 				.bindNode( 'navOverlay', '.nav-overlay', MK.binders.className( '!hide' ) )
-				//.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
-				//.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
 				.bindNode( 'typeBadge', ':sandbox .typo-badge' )
 				.bindNode( 'hideTypoBadge', ':bound(typeBadge)', MK.binders.className( 'hide' ) )
-				.bindNode( 'hashValue', window, {
-					on: 'hashchange',
-					getValue: function() {
-						return location.hash.replace( '#', '' );
-					}
-				})
 				.bindNode( 'hashValue', ':sandbox .another-language', {
 					setValue: function( v ) {
 						this.href = this.href.split( '#' )[0] + '#' + v;
 					}
 				})
-				.bindNode( 'view', 'nav .view-switcher', {
+				.bindNode( 'viewSwitcher', 'nav .view-switcher' )
+				.bindNode( 'isOldIE', ':bound(viewSwitcher)', MK.binders.visibility( false ) )
+				.bindNode( 'view', ':bound(viewSwitcher)', {
 					on: 'click',
 					getValue: function() {
 						return this.querySelector( '.checked' ).getAttribute( 'data-value' );
@@ -1385,12 +1392,13 @@ define('app/main.class',[
 						});
 					}
 				})
+			
 				.bindNode( 'view', 'body', MK.binders.attribute( 'data-view' ) )
 				.onDebounce( 'scroll::win', function() {
 					if( this.view === 'all' ) {
 						var fromTop = window.pageYOffset,
 							fromLeft = window.pageXOffset,
-							cur = this.articles.filter(function( article ){
+							cur = this.articles.filter(function( article ) {
 								return article.bound().offsetTop < fromTop + 50;
 							}),
 							hash;
@@ -1399,11 +1407,15 @@ define('app/main.class',[
 						
 						hash = cur ? cur.id : "";
 						
-						if( location.hash.replace( '#', '' ) != hash ) {
-							location.hash = hash;
+						if( this.hashValue != hash ) {
+							this.hashValue = hash;
+							if( window.history && history.pushState ) {
+								history.pushState( null, null, '#' + hash );
+							} else {
+								location.hash = hash;
+								scrollTo( fromLeft, fromTop );
+							}
 						} 
-						
-						scrollTo( fromLeft, fromTop );
 					}
 				}, 200 )
 				.on( 'change:view', function() {

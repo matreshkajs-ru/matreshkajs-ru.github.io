@@ -24,8 +24,18 @@ define([
 						return this.innerHTML;
 					} 
 				})
+				.bindNode( 'hashValue', window, {
+					on: 'hashchange',
+					getValue: function() {
+						return location.hash.replace( '#', '' );
+					}
+				})
 				.set({
-					view: localStorage.view || 'all',
+					ieVersion: document.documentMode,
+					isOldIE: document.documentMode <= 9
+				})
+				.set({
+					view: this.isOldIE ? 'per-one' : localStorage.view || 'all',
 					hideTypoBadge: localStorage.hideTypoBadge,
 					isMobile: /mobile|android/i.test( navigator.userAgent ),
 					articles: new Articles,
@@ -39,22 +49,16 @@ define([
 				.bindNode( 'isMobile', ':sandbox', MK.binders.className( 'mobile' ) )
 				.bindNode( 'loading', '.loader', MK.binders.className( '!hide' ) )
 				.bindNode( 'navOverlay', '.nav-overlay', MK.binders.className( '!hide' ) )
-				//.bindNode( 'commentsBlock', '<div id="disqus_thread"></div>' )
-				//.bindNode( 'commentsShown', ':bound(commentsBlock)', MK.binders.className( '!hide' ) )
 				.bindNode( 'typeBadge', ':sandbox .typo-badge' )
 				.bindNode( 'hideTypoBadge', ':bound(typeBadge)', MK.binders.className( 'hide' ) )
-				.bindNode( 'hashValue', window, {
-					on: 'hashchange',
-					getValue: function() {
-						return location.hash.replace( '#', '' );
-					}
-				})
 				.bindNode( 'hashValue', ':sandbox .another-language', {
 					setValue: function( v ) {
 						this.href = this.href.split( '#' )[0] + '#' + v;
 					}
 				})
-				.bindNode( 'view', 'nav .view-switcher', {
+				.bindNode( 'viewSwitcher', 'nav .view-switcher' )
+				.bindNode( 'isOldIE', ':bound(viewSwitcher)', MK.binders.visibility( false ) )
+				.bindNode( 'view', ':bound(viewSwitcher)', {
 					on: 'click',
 					getValue: function() {
 						return this.querySelector( '.checked' ).getAttribute( 'data-value' );
@@ -72,12 +76,13 @@ define([
 						});
 					}
 				})
+			
 				.bindNode( 'view', 'body', MK.binders.attribute( 'data-view' ) )
 				.onDebounce( 'scroll::win', function() {
 					if( this.view === 'all' ) {
 						var fromTop = window.pageYOffset,
 							fromLeft = window.pageXOffset,
-							cur = this.articles.filter(function( article ){
+							cur = this.articles.filter(function( article ) {
 								return article.bound().offsetTop < fromTop + 50;
 							}),
 							hash;
@@ -86,11 +91,15 @@ define([
 						
 						hash = cur ? cur.id : "";
 						
-						if( location.hash.replace( '#', '' ) != hash ) {
-							location.hash = hash;
+						if( this.hashValue != hash ) {
+							this.hashValue = hash;
+							if( window.history && history.pushState ) {
+								history.pushState( null, null, '#' + hash );
+							} else {
+								location.hash = hash;
+								scrollTo( fromLeft, fromTop );
+							}
 						} 
-						
-						scrollTo( fromLeft, fromTop );
 					}
 				}, 200 )
 				.on( 'change:view', function() {

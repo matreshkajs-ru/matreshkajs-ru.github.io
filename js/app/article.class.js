@@ -12,7 +12,9 @@ define([
 				.set({
 					commentsShown: false
 				})
+				.linkProps( 'ieVersion', [ g.app, 'ieVersion' ] )
 				.bindNode( 'sandbox', 'article[id="'+this.id+'"]' )
+				.bindOptionalNode( 'ieVersion', ':sandbox .comments', MK.binders.className( 'hide' ) )
 				.bindNode( 'menuItem', 'nav a[href="#'+this.id+'"]' )
 				.bindNode( 'isActive', ':bound(menuItem)', MK.binders.className( 'active' ) )
 				.bindNode( 'expanded', ':bound(menuItem)', MK.binders.className( 'expanded' ) )
