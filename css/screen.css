@@ -9317,6 +9317,21 @@ i.important {
   color: #ef5350;
 }
 
+@media screen and (min-width: 0 \0) and (min-resolution: 0.001dpcm) {
+  /* line 114, ../scss/site/_common.scss */
+  .modal, .typedef, form.typo {
+    width: 700px;
+    margin: 0 0 0 -350px;
+    left: 50%;
+  }
+}
+/* line 123, ../scss/site/_common.scss */
+.modal _:-ms-fullscreen, .typedef _:-ms-fullscreen, form.typo _:-ms-fullscreen, :root .modal, :root .typedef, :root form.typo {
+  width: 700px;
+  margin: 0 0 0 -350px;
+  left: 50%;
+}
+
 /* line 1, ../scss/site/_promo.scss */
 #promo {
   background-color: #fff;
