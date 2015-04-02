@@ -78,6 +78,18 @@ define([
 				})
 				.on( 'click::comment', function() {
 					var url = document.location.origin + document.location.pathname + '#' + this.id,
+						commentsContainer = this.bound( 'commentsContainer' );
+						
+					if( this.commentsShown = !this.commentsShown ) {
+						commentsContainer.classList.add( 'muut' );
+						g.app.muut();
+					}
+					
+					
+				})
+				// This code is kept if we'll need to move back to facebook
+				.on( 'click::comment___FACEBOOK', function() {
+					var url = document.location.origin + document.location.pathname + '#' + this.id,
 						//identifier = '__' + this.id,
 						commentsContainer = this.bound( 'commentsContainer' );
 						

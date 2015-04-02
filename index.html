@@ -5,8 +5,8 @@
 		<link rel="stylesheet" href="css/screen.css">
 		<meta name="viewport" content="initial-scale=1, width=device-width">
 		<meta charset="UTF-8">
-		<meta property="fb:app_id" content="901572946532005">
-		<meta property="fb:admins" content="100003203766589"/>
+		<!--<meta property="fb:app_id" content="901572946532005">
+		<meta property="fb:admins" content="100003203766589"/>-->
 		<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
@@ -894,7 +894,7 @@
 	<article id="home">
 		<img src="img/mk5-logo_matreshka.svg" class="mk-logo-matreshka">
 		<img src="img/mk5-logo_text.svg" class="mk-logo-text">
-		<span class="version">v1.0.2</span>
+		<span class="version">v1.0.3</span>
 		<p>JavaScript фреймворк для программистов</p>
 		<pre class="prettyprint lang-html" style="max-width: 540px; margin: 0 auto; text-align: left;"><code>&lt;script src=&quot;matreshka.min.js&quot;&gt;&lt;/script&gt;
 &lt;input type=&quot;text&quot; class=&quot;my-input&quot;&gt;
@@ -964,7 +964,7 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <p>Теперь можете открыть консоль разработчика (клавиша F12) и написать:</p>
 <pre class="prettyprint source lang-js"><code>app.x = 'Привет Мир!';</code></pre><p>Круто, не правда ли? Теперь можно работать напрямую со свойствами без болезненных инкапсуляций.</p>
 <blockquote>
-<p>Матрешка использует объектно-ориентированный подход основанный на классах, которые зарекомендовали себя самой с лучшей стороны в большинстве языков программирования: Python, C#, Java и многих других. Такое решение позволяет легко перейти на новые возможности синтаксиса JavaScript, описанные в стандарте ECMAScript 2015 и поддерживаемые Матрешкой. Проекты типа <a href="http://babeljs.io/">Babel</a> уже сегодня позволяют использовать крутой синтаксис JS нового поколения.</p>
+<p>Матрешка использует объектно-ориентированный подход основанный на классах, которые зарекомендовали себя самой с лучшей стороны в большинстве языков программирования: Python, C#, Java и многих других. Такое решение позволяет легко перейти на новые возможности синтаксиса JavaScript, описанные в стандарте ECMAScript 6 и поддерживаемые Матрешкой. Проекты типа <a href="http://babeljs.io/">Babel</a> уже сегодня позволяют использовать крутой синтаксис JS нового поколения.</p>
 <pre class="prettyprint source lang-js"><code>class Application extends Matreshka {
     constructor() {
         this.bindNode( 'x', '.my-input' );
@@ -1032,7 +1032,7 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 	sayHello: function() {
 		alert("Hello World!");
 	}
-});</code></pre><h5><p>Матрешка использует прототипы для реализации наследования. Функция <a href="#Class">Class</a> лишь вносит синтаксический сахар и добавляет хаки для Internet Explorer 8. Поэтому вы можете воспользоваться любым другим полюбившимся способом наследования, например, используя классы из ECMAScript 2015</p></h5>
+});</code></pre><h5><p>Матрешка использует прототипы для реализации наследования. Функция <a href="#Class">Class</a> лишь вносит синтаксический сахар и добавляет хаки для Internet Explorer 8. Поэтому вы можете воспользоваться любым другим полюбившимся способом наследования, например, используя классы из ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>class MyClass extends Matreshka {
 	constructor() {
 		this.sayHello();
@@ -1042,7 +1042,13 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 	}
 }</code></pre>
 		<a class="comments" data-id="Matreshka" data-title="Класс Matreshka">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka"
+  title="Класс Matreshka"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 	</article>
 	
 <article class="item property" id="Matreshka-isMK">
@@ -1066,7 +1072,13 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert(object.isMK);</code></pre>
 	<a class="comments" data-id="Matreshka-isMK" data-title="Свойство Matreshka-isMK">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-isMK"
+  title="Свойство Matreshka-isMK"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka-$sandbox">
 	<h2>
@@ -1097,7 +1109,13 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
 this.$sandbox; // то же самое, что и $( '.app' )</code></pre>
 	<a class="comments" data-id="Matreshka-$sandbox" data-title="Свойство Matreshka-$sandbox">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-$sandbox"
+  title="Свойство Matreshka-$sandbox"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka-sandbox">
 	<h2>
@@ -1128,7 +1146,13 @@ this.$sandbox; // то же самое, что и $( '.app' )</code></pre>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'sandbox', '.app' );
 this.sandbox; // то же самое, что и $( '.app' )[0]</code></pre>
 	<a class="comments" data-id="Matreshka-sandbox" data-title="Свойство Matreshka-sandbox">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-sandbox"
+  title="Свойство Matreshka-sandbox"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
 	
 <article class="item method " id="Matreshka-on">
@@ -1259,7 +1283,13 @@ this.on( 'foo', function() {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-on" data-title="Метод Matreshka-on">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-on"
+  title="Метод Matreshka-on"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -1404,7 +1434,13 @@ for( var i = 0; i &lt; 100; i++ ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-onDebounce" data-title="Метод Matreshka-onDebounce">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-onDebounce"
+  title="Метод Matreshka-onDebounce"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -1518,7 +1554,13 @@ this.x = 3; // ничего не делает</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-once" data-title="Метод Matreshka-once">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-once"
+  title="Метод Matreshka-once"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -1636,7 +1678,13 @@ this.off( 'change:x', handler, object );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-off" data-title="Метод Matreshka-off">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-off"
+  title="Метод Matreshka-off"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -1734,7 +1782,13 @@ this.trigger( 'ohyeah', 1, 2, 3 ); // alerts 6</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-trigger" data-title="Метод Matreshka-trigger">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-trigger"
+  title="Метод Matreshka-trigger"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2056,7 +2110,13 @@ this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-bindNode" data-title="Метод Matreshka-bindNode">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-bindNode"
+  title="Метод Matreshka-bindNode"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2143,7 +2203,13 @@ this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-bindNode(2)" data-title="Метод Matreshka-bindNode(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-bindNode(2)"
+  title="Метод Matreshka-bindNode(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2234,7 +2300,13 @@ this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-bindNode(3)" data-title="Метод Matreshka-bindNode(3)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-bindNode(3)"
+  title="Метод Matreshka-bindNode(3)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2269,7 +2341,13 @@ this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-bindOptionalNode" data-title="Метод Matreshka-bindOptionalNode">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-bindOptionalNode"
+  title="Метод Matreshka-bindOptionalNode"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2382,7 +2460,13 @@ this.myKey = false; </code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-unbindNode" data-title="Метод Matreshka-unbindNode">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-unbindNode"
+  title="Метод Matreshka-unbindNode"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2472,7 +2556,13 @@ this.myKey = false; </code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-unbindNode(2)" data-title="Метод Matreshka-unbindNode(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-unbindNode(2)"
+  title="Метод Matreshka-unbindNode(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2585,7 +2675,13 @@ this.unbindNode( temporaryBindings );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-unbindNode(3)" data-title="Метод Matreshka-unbindNode(3)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-unbindNode(3)"
+  title="Метод Matreshka-unbindNode(3)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2656,7 +2752,13 @@ this.boundAll(); // вернет $( '.app' )</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-boundAll" data-title="Метод Matreshka-boundAll">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-boundAll"
+  title="Метод Matreshka-boundAll"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2684,7 +2786,13 @@ this.boundAll(); // вернет $( '.app' )</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-$bound" data-title="Метод Matreshka-$bound">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-$bound"
+  title="Метод Matreshka-$bound"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2759,7 +2867,13 @@ this.bound(); // вернет $( '.app' )[0]</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-bound" data-title="Метод Matreshka-bound">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-bound"
+  title="Метод Matreshka-bound"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2836,7 +2950,13 @@ $( '.my-element' ).find( '.my-another-element' );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-selectAll" data-title="Метод Matreshka-selectAll">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-selectAll"
+  title="Метод Matreshka-selectAll"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2864,7 +2984,13 @@ $( '.my-element' ).find( '.my-another-element' );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-$(instance)" data-title="Метод Matreshka-$(instance)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-$(instance)"
+  title="Метод Matreshka-$(instance)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2935,7 +3061,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-select" data-title="Метод Matreshka-select">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-select"
+  title="Метод Matreshka-select"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -2992,7 +3124,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-eq" data-title="Метод Matreshka-eq">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-eq"
+  title="Метод Matreshka-eq"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3062,7 +3200,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-defineGetter" data-title="Метод Matreshka-defineGetter">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-defineGetter"
+  title="Метод Matreshka-defineGetter"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3121,7 +3265,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-defineGetter(2)" data-title="Метод Matreshka-defineGetter(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-defineGetter(2)"
+  title="Метод Matreshka-defineGetter(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3191,7 +3341,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-defineSetter" data-title="Метод Matreshka-defineSetter">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-defineSetter"
+  title="Метод Matreshka-defineSetter"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3250,7 +3406,13 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-defineSetter(2)" data-title="Метод Matreshka-defineSetter(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-defineSetter(2)"
+  title="Метод Matreshka-defineSetter(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3330,7 +3492,13 @@ alert( typeof this.x ); // "string"</code></pre><h5><p>Список ключей
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-mediate" data-title="Метод Matreshka-mediate">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-mediate"
+  title="Метод Matreshka-mediate"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3401,7 +3569,13 @@ alert( typeof this.z ); // "boolean"</code></pre><h5><p>Список ключе�
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-mediate(2)" data-title="Метод Matreshka-mediate(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-mediate(2)"
+  title="Метод Matreshka-mediate(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3530,7 +3704,13 @@ this.a = 5; // alerts "периметр изменен и равен 18"</code><
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-linkProps" data-title="Метод Matreshka-linkProps">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-linkProps"
+  title="Метод Matreshka-linkProps"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3645,7 +3825,13 @@ anotherInstance1.a = 5; // "this.sum равен 8"</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-linkProps(2)" data-title="Метод Matreshka-linkProps(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-linkProps(2)"
+  title="Метод Matreshka-linkProps(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3702,7 +3888,13 @@ this.get( 'myKey' );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-get" data-title="Метод Matreshka-get">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-get"
+  title="Метод Matreshka-get"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3820,7 +4012,13 @@ this.set( 'myKey', 4, {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-set" data-title="Метод Matreshka-set">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-set"
+  title="Метод Matreshka-set"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3898,7 +4096,13 @@ this.set( 'myKey', 4, {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-set(2)" data-title="Метод Matreshka-set(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-set(2)"
+  title="Метод Matreshka-set(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -3987,7 +4191,13 @@ this.remove( 'myKey1 myKey2' );</code></pre><h5><p>Использование <c
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-remove" data-title="Метод Matreshka-remove">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-remove"
+  title="Метод Matreshka-remove"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4068,7 +4278,13 @@ this.remove( 'myKey1 myKey2' );</code></pre><h5><p>Использование <c
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-define" data-title="Метод Matreshka-define">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-define"
+  title="Метод Matreshka-define"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4143,7 +4359,13 @@ this.remove( 'myKey1 myKey2' );</code></pre><h5><p>Использование <c
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-define(2)" data-title="Метод Matreshka-define(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-define(2)"
+  title="Метод Matreshka-define(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4252,7 +4474,13 @@ this.x = 1;</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-delay" data-title="Метод Matreshka-delay">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-delay"
+  title="Метод Matreshka-delay"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4280,7 +4508,13 @@ this.x = 1;</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-getAnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything" data-title="Метод Matreshka-getAnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka-getAnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything"
+  title="Метод Matreshka-getAnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4306,7 +4540,13 @@ this.x = 1;</code></pre>
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert( Matreshka.version );</code></pre>
 	<a class="comments" data-id="Matreshka.version" data-title="Свойство Matreshka.version">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.version"
+  title="Свойство Matreshka.version"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka.isXDR">
 	<h2>
@@ -4329,7 +4569,13 @@ this.x = 1;</code></pre>
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert( Matreshka.isXDR );</code></pre>
 	<a class="comments" data-id="Matreshka.isXDR" data-title="Свойство Matreshka.isXDR">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.isXDR"
+  title="Свойство Matreshka.isXDR"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka.defaultBinders">
 	<h2>
@@ -4388,7 +4634,13 @@ MK.defaultBinders.shift( function( element ) {
 
 this.bindNode( 'myKey', '.custom-checkbox' );</code></pre>
 	<a class="comments" data-id="Matreshka.defaultBinders" data-title="Свойство Matreshka.defaultBinders">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.defaultBinders"
+  title="Свойство Matreshka.defaultBinders"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 	
 <article class="item method " id="Matreshka.extend">
@@ -4468,7 +4720,13 @@ MK.extend( o1, o2 );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.extend" data-title="Метод Matreshka.extend">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.extend"
+  title="Метод Matreshka.extend"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4503,7 +4761,13 @@ Class({
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Class" data-title="Метод Matreshka.Class">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Class"
+  title="Метод Matreshka.Class"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4531,7 +4795,13 @@ Class({
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.$(static)" data-title="Метод Matreshka.$(static)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.$(static)"
+  title="Метод Matreshka.$(static)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4559,7 +4829,13 @@ Class({
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.$b" data-title="Метод Matreshka.$b">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.$b"
+  title="Метод Matreshka.$b"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4616,7 +4892,13 @@ Class({
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.useAs$" data-title="Метод Matreshka.useAs$">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.useAs$"
+  title="Метод Matreshka.useAs$"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4644,7 +4926,13 @@ Class({
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.noop" data-title="Метод Matreshka.noop">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.noop"
+  title="Метод Matreshka.noop"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4732,7 +5020,13 @@ MK.each( myObject, function( value, key ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.each" data-title="Метод Matreshka.each">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.each"
+  title="Метод Matreshka.each"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4824,7 +5118,13 @@ for( var i = 0; i &lt; 100; i++ ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.debounce" data-title="Метод Matreshka.debounce">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.debounce"
+  title="Метод Matreshka.debounce"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4910,7 +5210,13 @@ for( var i = 0; i &lt; 100; i++ ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.lookForBinder" data-title="Метод Matreshka.lookForBinder">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.lookForBinder"
+  title="Метод Matreshka.lookForBinder"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4948,7 +5254,13 @@ for( var i = 0; i &lt; 100; i++ ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.randomString" data-title="Метод Matreshka.randomString">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.randomString"
+  title="Метод Matreshka.randomString"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -4989,7 +5301,13 @@ this.bindNode( 'myKey', '.my-element', MK.binders.myCoolBinder( 'Hello', 'World'
 	
 	
 	<a class="comments" data-id="Matreshka.binders" data-title="Пространство имен Matreshka.binders">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders"
+  title="Пространство имен Matreshka.binders"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 
 <article class="item method " id="Matreshka.binders.innerHTML">
@@ -5033,7 +5351,13 @@ this.bindElement( 'myKey', '.my-element', {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.innerHTML" data-title="Метод Matreshka.binders.innerHTML">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.innerHTML"
+  title="Метод Matreshka.binders.innerHTML"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5116,7 +5440,13 @@ this.bindElement( 'myKey', '.my-element', {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.visibility" data-title="Метод Matreshka.binders.visibility">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.visibility"
+  title="Метод Matreshka.binders.visibility"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5205,7 +5535,13 @@ this.myKey = false; // убирает класс 'blah' </code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.className" data-title="Метод Matreshka.binders.className">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.className"
+  title="Метод Matreshka.binders.className"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5284,7 +5620,13 @@ this.disabled = false; </code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.property" data-title="Метод Matreshka.binders.property">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.property"
+  title="Метод Matreshka.binders.property"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5359,7 +5701,13 @@ this.image = 'http://example.com/cats.jpg';</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.attribute" data-title="Метод Matreshka.binders.attribute">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.attribute"
+  title="Метод Matreshka.binders.attribute"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5427,7 +5775,13 @@ this.image = 'http://example.com/cats.jpg';</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.input" data-title="Метод Matreshka.binders.input">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.input"
+  title="Метод Matreshka.binders.input"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5465,7 +5819,13 @@ this.image = 'http://example.com/cats.jpg';</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.textarea" data-title="Метод Matreshka.binders.textarea">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.textarea"
+  title="Метод Matreshka.binders.textarea"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5533,7 +5893,13 @@ this.image = 'http://example.com/cats.jpg';</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.binders.select" data-title="Метод Matreshka.binders.select">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.binders.select"
+  title="Метод Matreshka.binders.select"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5615,7 +5981,7 @@ new MK.Object({ a: 1, b: 2 });</code></pre><h5><p>Наследование</p></
 	sayHello: function() {
 		alert("Hello World!");
 	}
-});</code></pre><h5><p>Наследование, используя синтаксис ECMAScript 2015</p></h5>
+});</code></pre><h5><p>Наследование, используя синтаксис ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>class MyClass extends MK.Object {
 	constructor() {
 		this.sayHello();
@@ -5623,13 +5989,19 @@ new MK.Object({ a: 1, b: 2 });</code></pre><h5><p>Наследование</p></
 	sayHello() {
 		alert("Hello World!");
 	}
-}</code></pre><h5><p>Перебор данных, используя цикл for..of из ECMAScript 2015</p></h5>
+}</code></pre><h5><p>Перебор данных, используя цикл for..of из ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>var mkObject = new MK.Object({ a: 1, b: 2 });
 for(let item of mkObject) {
 	console.log( item ); // 1 .. 2
 }</code></pre>
 		<a class="comments" data-id="Matreshka.Object" data-title="Класс Matreshka.Object">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object"
+  title="Класс Matreshka.Object"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 	</article>
 	
 <article class="item property" id="Matreshka.Object-isMKObject">
@@ -5653,7 +6025,13 @@ for(let item of mkObject) {
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert( object.isMKObject );</code></pre>
 	<a class="comments" data-id="Matreshka.Object-isMKObject" data-title="Свойство Matreshka.Object-isMKObject">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-isMKObject"
+  title="Свойство Matreshka.Object-isMKObject"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
 	
 <article class="item method " id="Matreshka.Object-keys">
@@ -5690,7 +6068,13 @@ for(let item of mkObject) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-keys" data-title="Метод Matreshka.Object-keys">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-keys"
+  title="Метод Matreshka.Object-keys"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5726,7 +6110,13 @@ mkObject.x.trigger( 'something' );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-on" data-title="Метод Matreshka.Object-on">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-on"
+  title="Метод Matreshka.Object-on"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5801,7 +6191,13 @@ mkObject.hasOwnProperty( 'c' ); // false</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-hasOwnProperty" data-title="Метод Matreshka.Object-hasOwnProperty">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-hasOwnProperty"
+  title="Метод Matreshka.Object-hasOwnProperty"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5844,7 +6240,13 @@ mkObject.toObject(); // возвращает { a: 1, b: 2 }</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-toObject" data-title="Метод Matreshka.Object-toObject">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-toObject"
+  title="Метод Matreshka.Object-toObject"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5887,7 +6289,13 @@ mkObject.toNative(); // возвращает { a: 1, b: 2 }</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-toNative" data-title="Метод Matreshka.Object-toNative">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-toNative"
+  title="Метод Matreshka.Object-toNative"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -5935,7 +6343,13 @@ mkObject.toJSON();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-toJSON" data-title="Метод Matreshka.Object-toJSON">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-toJSON"
+  title="Метод Matreshka.Object-toJSON"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6014,7 +6428,13 @@ mkObject.keyOf( 3 ); // null</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-keyOf" data-title="Метод Matreshka.Object-keyOf">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-keyOf"
+  title="Метод Matreshka.Object-keyOf"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6139,7 +6559,13 @@ this.b = 4;</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-jset" data-title="Метод Matreshka.Object-jset">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-jset"
+  title="Метод Matreshka.Object-jset"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6224,7 +6650,13 @@ this.b = 4;</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-jset(2)" data-title="Метод Matreshka.Object-jset(2)">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-jset(2)"
+  title="Метод Matreshka.Object-jset(2)"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6318,7 +6750,13 @@ this.remove( 'myKey1 myKey2' );</code></pre><h5><p>Использование о
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-remove" data-title="Метод Matreshka.Object-remove">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-remove"
+  title="Метод Matreshka.Object-remove"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6394,7 +6832,13 @@ this.each( function( value, key ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-addDataKeys" data-title="Метод Matreshka.Object-addDataKeys">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-addDataKeys"
+  title="Метод Matreshka.Object-addDataKeys"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6464,7 +6908,13 @@ this.each( function( value, key ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-removeDataKeys" data-title="Метод Matreshka.Object-removeDataKeys">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-removeDataKeys"
+  title="Метод Matreshka.Object-removeDataKeys"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6554,7 +7004,13 @@ this.each( function( value, key ) {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Object-each" data-title="Метод Matreshka.Object-each">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Object-each"
+  title="Метод Matreshka.Object-each"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -6711,7 +7167,7 @@ myArray.push({
 	sayHello: function() {
 		alert("Hello World!");
 	}
-});</code></pre><h5><p>Наследование, используя синтаксис ECMAScript 2015</p></h5>
+});</code></pre><h5><p>Наследование, используя синтаксис ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>class MyClass extends MK.Array {
 	constructor() {
 		this.sayHello();
@@ -6719,7 +7175,7 @@ myArray.push({
 	sayHello() {
 		alert("Hello World!");
 	}
-}</code></pre><h5><p>Перебор данных, используя цикл for..of из ECMAScript 2015</p></h5>
+}</code></pre><h5><p>Перебор данных, используя цикл for..of из ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>var mkArray = new MK.Array( 1, 2, 3 );
 for(let item of mkArray) {
 	console.log( item ); // 1 .. 2 .. 3
@@ -6747,7 +7203,13 @@ this.shift_({
 	customData: 42 // 42
 }); </code></pre>
 		<a class="comments" data-id="Matreshka.Array" data-title="Класс Matreshka.Array">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array"
+  title="Класс Matreshka.Array"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 	</article>
 	
 <article class="item property" id="Matreshka.Array-isMKArray">
@@ -6771,7 +7233,13 @@ this.shift_({
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>alert(object.isMKArray);</code></pre>
 	<a class="comments" data-id="Matreshka.Array-isMKArray" data-title="Свойство Matreshka.Array-isMKArray">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-isMKArray"
+  title="Свойство Matreshka.Array-isMKArray"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka.Array-useBindingsParser">
 	<h2>
@@ -6805,7 +7273,13 @@ this.shift_({
 	itemRenderer: '&lt;li>'
 });</code></pre>
 	<a class="comments" data-id="Matreshka.Array-useBindingsParser" data-title="Свойство Matreshka.Array-useBindingsParser">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-useBindingsParser"
+  title="Свойство Matreshka.Array-useBindingsParser"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka.Array-renderIfPossible">
 	<h2>
@@ -6840,7 +7314,13 @@ this.shift_({
     // ...
 });</code></pre>
 	<a class="comments" data-id="Matreshka.Array-renderIfPossible" data-title="Свойство Matreshka.Array-renderIfPossible">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-renderIfPossible"
+  title="Свойство Matreshka.Array-renderIfPossible"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article>
 <article class="item property" id="Matreshka.Array-itemRenderer">
 	<h2>
@@ -7038,7 +7518,13 @@ var app = new MyArray();</code></pre><p>Пример выше полностью
 	  
 
 	<a class="comments" data-id="Matreshka.Array-itemRenderer" data-title="Свойство Matreshka.Array-itemRenderer">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-itemRenderer"
+  title="Свойство Matreshka.Array-itemRenderer"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
 	
 <article class="item method " id="Matreshka.Array-Model">
@@ -7142,7 +7628,7 @@ myArray.push({
 })
 
 // вернет [{ a: 1, b: 2 }, { a: 3, b: 4 }]
-myArray.toJSON();</code></pre><h5><p><code>Model</code> и ECMAScript 2015</p></h5>
+myArray.toJSON();</code></pre><h5><p><code>Model</code> и ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>class MyArray extends MK.Array {
 	get Model() {
 		return MyModel;
@@ -7151,7 +7637,13 @@ myArray.toJSON();</code></pre><h5><p><code>Model</code> и ECMAScript 2015</p></
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-Model" data-title="Метод Matreshka.Array-Model">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-Model"
+  title="Метод Matreshka.Array-Model"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7209,7 +7701,13 @@ console.log( mkArray.toJSON() );</code></pre><h5><p>Условная Модел�
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-mediateItem" data-title="Метод Matreshka.Array-mediateItem">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-mediateItem"
+  title="Метод Matreshka.Array-mediateItem"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7243,7 +7741,13 @@ this[0].trigger( 'something' );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-on" data-title="Метод Matreshka.Array-on">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-on"
+  title="Метод Matreshka.Array-on"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7334,7 +7838,13 @@ this.recreate();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-recreate" data-title="Метод Matreshka.Array-recreate">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-recreate"
+  title="Метод Matreshka.Array-recreate"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7372,7 +7882,13 @@ this.recreate();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-toArray" data-title="Метод Matreshka.Array-toArray">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-toArray"
+  title="Метод Matreshka.Array-toArray"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7410,7 +7926,13 @@ this.recreate();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-toNative" data-title="Метод Matreshka.Array-toNative">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-toNative"
+  title="Метод Matreshka.Array-toNative"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7457,7 +7979,13 @@ mkArray.rerender();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-rerender" data-title="Метод Matreshka.Array-rerender">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-rerender"
+  title="Метод Matreshka.Array-rerender"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7503,7 +8031,13 @@ mkArray.hasOwnProperty( 'blah' ); // false</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-hasOwnProperty" data-title="Метод Matreshka.Array-hasOwnProperty">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-hasOwnProperty"
+  title="Метод Matreshka.Array-hasOwnProperty"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7541,7 +8075,13 @@ mkArray.hasOwnProperty( 'blah' ); // false</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-toJSON" data-title="Метод Matreshka.Array-toJSON">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-toJSON"
+  title="Метод Matreshka.Array-toJSON"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7654,7 +8194,13 @@ alert( this.length ); // 2</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-pull" data-title="Метод Matreshka.Array-pull">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-pull"
+  title="Метод Matreshka.Array-pull"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7736,7 +8282,13 @@ alert( this.length ); // 2</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-each" data-title="Метод Matreshka.Array-each">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-each"
+  title="Метод Matreshka.Array-each"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7807,7 +8359,13 @@ alert( mapped.isMKArray );</code></pre><h5></h5>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-METHOD" data-title="Метод Matreshka.Array-METHOD">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-METHOD"
+  title="Метод Matreshka.Array-METHOD"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7861,7 +8419,13 @@ this.push_( 1, 2, 3, {
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.Array-METHOD_" data-title="Метод Matreshka.Array-METHOD_">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Matreshka.Array-METHOD_"
+  title="Метод Matreshka.Array-METHOD_"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -7983,7 +8547,7 @@ require(['path/to/matreshka.min'], function(MK) {
 			// ...
 		}
 	});
-});</code></pre><h5><p>Использование функции <code>Class</code> обязательно для IE8, но не требуется в других браузерах. Поэтому, Матрешка из коробки поддерживает любой вид прототипного наследования, в том числе и синтаксис ECMAScript 2015</p></h5>
+});</code></pre><h5><p>Использование функции <code>Class</code> обязательно для IE8, но не требуется в других браузерах. Поэтому, Матрешка из коробки поддерживает любой вид прототипного наследования, в том числе и синтаксис ECMAScript 6</p></h5>
 <pre class="prettyprint source lang-js"><code>class A extends B {
 	constructor() {
 		super();
@@ -8002,7 +8566,13 @@ alert( this instanceof MyClass );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Class" data-title="Метод Class">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:Class"
+  title="Метод Class"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -8109,7 +8679,13 @@ $.extend(myObject,{
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="$b" data-title="Метод $b">Задать вопрос<i></i></a>
-<div class="comments-container"></div>
+<!--<div class="comments-container"></div>-->
+<div class="comments-container"
+  href="https://muut.com/i/matreshka/comments/matreshka-ru:$b"
+  title="Метод $b"
+  data-channel="Matreshka"
+  data-show_online="false"
+  data-upload="false"></div>
 </article> 
  
 
@@ -8689,7 +9265,12 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 
 </section>
 <section>
-<article id="whats-new"><h2><a href="#whats-new">Что нового?</a></h2><h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.2">Матрешка 1.0.2</a></h3><ul>
+<article id="whats-new"><h2><a href="#whats-new">Что нового?</a></h2><h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.3">Матрешка 1.0.3</a></h3><ul>
+<li>Исправлена ошибка <a href="#Matreshka.binders.select">Matreshka.binders.select</a>, возникающая при использовании аргумента <code>multiple</code></li>
+<li>Серьезная оптимизация скорости большинства методов <a href="#Matreshka.Array">Matreshka.Array</a></li>
+<li>Исправлены неочевидные ошибки рендеринга <a href="#Matreshka.Array">Matreshka.Array</a></li>
+</ul>
+<h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.2">Матрешка 1.0.2</a></h3><ul>
 <li>Исправлены ошибки <a href="#Matreshka.Array">Matreshka.Array</a> для Internet Explorer 8</li>
 <li>Небольшая оптимизация методов <a href="#Matreshka.Array">Matreshka.Array</a></li>
 </ul>
@@ -8819,9 +9400,7 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 		<button class="cancel">Отменить</button>
 	</div>
 </form>
-<script>
-	window.disqus_shortname = 'matreshka-rus';
-</script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -8843,6 +9422,6 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 			</div>
 		</script>
 		<script src="js/dist/app.min.js"></script>
-		<div id="fb-root"></div>
+		<!--<div id="fb-root"></div>-->
 	</body>
 </html>

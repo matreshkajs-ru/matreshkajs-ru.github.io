@@ -146,13 +146,42 @@ define([
 			
 			
 			location.hash = location.hash || 'home';
+			
+			if( ~location.hash.indexOf( 'comments' ) ) { //  #!/matreshka/comments/matreshka-ru%23matreshka::unread
+				var threadID = location.hash.replace( /#!\/matreshka\/comments\/matreshka-\S{2}%23(.*)::unread/, '$1' ).toLowerCase(),
+					commentArticle,
+					commentsContainer;
+
+				for( var i = 0; i < this.articles.length; i++ ) {
+					if( ~this.articles[i].id.toLowerCase().replace( /\./g, '' ).indexOf( threadID ) ) {
+						commentArticle = this.articles[i];
+						commentsContainer = commentArticle.bound( 'commentsContainer' );
+						break;
+					}
+				}
+
+				if( commentArticle && commentsContainer ) {
+					commentsContainer.classList.add( 'muut' );
+					commentArticle.commentsShown = true;
+					this.muut();
+				}
+			}
+			
 			this.loading = false;
 			
 			prettyPrint();
+		},
+		muut: function() {
+			var script;
+			if( typeof jQuery === 'undefined' || !jQuery.fn.muut ) {
+				document.body.appendChild( $.create( 'script', {
+					src: '//cdn.muut.com/1/moot.min.js'
+				}) );
+			} else {
+				jQuery( '.muut' ).muut();
+			}
 		}
 	});
-	
-	
 });
 
 
