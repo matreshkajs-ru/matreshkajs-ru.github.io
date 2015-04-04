@@ -9332,6 +9332,11 @@ i.important {
   left: 50%;
 }
 
+/* line 131, ../scss/site/_common.scss */
+.m-account input[type="checkbox"] {
+  position: static;
+}
+
 /* line 1, ../scss/site/_promo.scss */
 #promo {
   background-color: #fff;
