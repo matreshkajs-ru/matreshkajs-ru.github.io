@@ -1775,10 +1775,10 @@ this.off( 'change:x', handler, object );</code></pre>
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.on( 'jigurda ohyeah', function( a, b, c ) {
-	alert( a, b, c );
+<pre class="prettyprint source lang-js"><code>this.on( 'foo bar', function( a, b, c ) {
+	alert( a + b + c );
 });
-this.trigger( 'ohyeah', 1, 2, 3 ); // alerts 6</code></pre>
+this.trigger( 'bar', 1, 2, 3 ); // alerts 6</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-trigger" data-title="Метод Matreshka-trigger">Задать вопрос<i></i></a>
@@ -1809,7 +1809,7 @@ this.trigger( 'ohyeah', 1, 2, 3 ); // alerts 6</code></pre>
 <blockquote>
 <p>Метод <code>bindNode</code> поддерживает привязки "многие ко многим". С одним свойством можно связать несколько элементов, а с одним элементом можно связать несколько свойств, в том числе и от разных экземпляров разных классов.</p>
 </blockquote>
-<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element'. {
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', {
     on: 'click',
     getValue: function() { ... },
     setValue: function() { ... }
