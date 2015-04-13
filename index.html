@@ -649,7 +649,7 @@
 					
 			
 				<li>
-					<a href="#Matreshka.Object-toJSON" title="Конвертирует экземпляр и внутренние свойства Matreshka.Object обычный объект" data-name="toJSON">
+					<a href="#Matreshka.Object-toJSON" title="Конвертирует экземпляр и внутренние свойства Matreshka.Object в обычный объект" data-name="toJSON">
 						toJSON
 						<i class="important" title="+self.lang.important+"></i>
 						
@@ -657,7 +657,7 @@
 					
 			
 				<li>
-					<a href="#Matreshka.Object-keyOf" title="Ищет заданное значение свойства среди свойств, отвечающих за данные и возвращает ключ, если такое значение найдено  (аналог Array.prototype.indexOf)" data-name="keyOf">
+					<a href="#Matreshka.Object-keyOf" title="Ищет заданное значение свойства среди свойств, отвечающих за данные, и возвращает ключ, если такое значение найдено  (аналог Array.prototype.indexOf)" data-name="keyOf">
 						keyOf
 						
 						
@@ -984,7 +984,6 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 <li><a href="#Matreshka-on">Метод Matreshka#on</a></li>
 <li><a href="#Class">Функция Class</a></li>
 </ul></article><article id="todomvc"><h2><a href="#todomvc">TodoMVC</a></h2><p>Как известно, самым эффективным способом понять, стоит ли изучать библиотеку или фреймворк является код. Проект <a href="http://todomvc.com/">TodoMVC</a> объединяет десятки фреймворков позволяя их сравнить на примере одного и того же приложения.
-и себя самой с лучше
 <img src="img/todomvc.png" alt="TodoMVC"></p>
 <p>Посмотрите на <a href="todo/">живую реализацию TodoMVC</a> на базе Матрешки, а, затем, <a href="todo/js_ru/docs/app.html">взгляните на исходный код с аннотациями</a>. Выглядит очень просто, не так ли?</p></article><article id="how-to-include"><h2><a href="#how-to-include">Как подключить?</a></h2><p>Матрешка - самостоятельный фреймворк, не требующий никаких зависимостей. Но возможность использования уже не современных возможностей из стандарта ECMAScript5 в Internet Explorer 8 отсутствует. Поэтому, если вы поддерживаете IE8 в разрабатываемых вами приложениях, вам нужно подключить еще один JavaScript файл: <a href="https://github.com/es-shims/es5-shim">es5-shim</a> или любой другой полифил, реализующий возможности ECMAScript5.</p>
 <p>Подключение jQuery для всех браузеров - опционально (хотя, для IE8 рекомендуемо). Вместо этой библиотеки можете воспользоваться другой jQuery-подобной библиотекой, например, <a href="http://zeptojs.com/">Zepto</a>. Если вы вовсе не хотите использовать библиотек, отдавая предпочтение <a href="http://vanilla-js.com/">Vanilla.js</a>, Матрешка будет использовать встроенную микро-библиотеку, которая называется <a href="#$b">Балалайка</a>.</p>
@@ -1414,7 +1413,7 @@ this.on( 'foo', function() {
 	
 		<li><a href="#Matreshka.debounce">Matreshka.debounce</a>
 	
-		<li><a href="http://habrahabr.ru/post/60957/">Статья на Хабре микропаттерне debounce</a>
+		<li><a href="http://habrahabr.ru/post/60957/">Статья на Хабре о микропаттерне debounce</a>
 	
 </ul>
 
@@ -6310,7 +6309,7 @@ mkObject.toNative(); // возвращает { a: 1, b: 2 }</code></pre>
 		<i class="important" title="Важно"></i>
 		<span class="new-badge"></span>
 	</h2>
-	<div class="summary"><p>Конвертирует экземпляр и внутренние свойства <a href="#Matreshka.Object">Matreshka.Object</a> обычный объект</p></div>
+	<div class="summary"><p>Конвертирует экземпляр и внутренние свойства <a href="#Matreshka.Object">Matreshka.Object</a> в обычный объект</p></div>
 	<div class="description"></div>
 	
 	<p>
@@ -6367,7 +6366,7 @@ mkObject.toJSON();</code></pre>
 		
 		<span class="new-badge"></span>
 	</h2>
-	<div class="summary"><p>Ищет заданное значение свойства среди свойств, отвечающих за данные и возвращает ключ, если такое значение найдено  (аналог <code>Array.prototype.indexOf</code>)</p></div>
+	<div class="summary"><p>Ищет заданное значение свойства среди свойств, отвечающих за данные, и возвращает ключ, если такое значение найдено  (аналог <code>Array.prototype.indexOf</code>)</p></div>
 	<div class="description"></div>
 	
 	<p>
@@ -7087,7 +7086,7 @@ var MyModel = Class({
     }
 });
 
-// опеределяем класс для коллекции
+// определяем класс для коллекции
 var MyArray = Class({
     'extends': MK.Array,
     Model: MyModel
@@ -7336,7 +7335,7 @@ this.shift_({
 	</h2>
 	<div class="summary"><p>HTML строка, селектор или функция, отвечающая за отрисовку элементов массива на странице</p></div>
 	<div class="description"><p>Свойство <code>itemRenderer</code> - это переопределяемое свойство, которое позволяет рендерить элементы массива без участия программиста. При вставке нового элемента в массив, автоматически создается HTML узел. Этот узел становится песочницей (см. <a href="#Matreshka-bindNode">Matreshka#bindNode</a>) для вставленного элемента и встраивается в HTML контейнер, определенный в массиве.</p>
-<h4>Куда вставляется созданный элемент?</h4><p>Для того, чтобы определить HTML контейнер в который будут вставлятьсв отрисованные HTML узлы, нужно определить <strong>контейнер</strong>. Для этого следует объявить HTML песочницу для массива либо связать специальный ключ <code>container</code> с HTML контейнером. Подробнее о привязках и песочнице см. <a href="#Matreshka-bindNode">Matreshka#bindNode</a>.
+<h4>Куда вставляется созданный элемент?</h4><p>Для того, чтобы определить HTML контейнер, в который будут вставляться отрисованные HTML узлы, нужно определить <strong>контейнер</strong>. Для этого следует объявить HTML песочницу для массива либо связать специальный ключ <code>container</code> с HTML контейнером. Подробнее о привязках и песочнице см. <a href="#Matreshka-bindNode">Matreshka#bindNode</a>.
 Пример использования песочницы в качестве контейнера:</p>
 <pre class="prettyprint source lang-html"><code>&lt;ul class="my-list">&lt;/ul></code></pre><pre class="prettyprint source lang-js"><code>var MyArray = Class({
     'extends': MK.Array,
@@ -8880,7 +8879,7 @@ this.on( 'click::(.my-button)', function( evt ) {
     alert( 'clicked ".my-button"' );
 });</code></pre><p>Оригинальное DOM событие находится под ключём <code>domEvent</code> объекта события.</p>
 <h3>Делегированные события Матрешки</h3><p>Для того, чтоб отловить событие внутри свойства, если значением этого свойства является другой экземпляр Матрешки, можно использовать специальный синтаксис <code>КЛЮЧ@ИМЯ_СОБЫТИЯ</code>. Таким образом, программисту не требуется всё время следить за значением свойства</p>
-<p>Сравните два подхода. Первый - простой: слушаем изменения свойства, проверяем, является ли значение свойства экземпляром Матрешки, невешиваем обработчик.</p>
+<p>Сравните два подхода. Первый - простой: слушаем изменения свойства, проверяем, является ли значение свойства экземпляром Матрешки, навешиваем обработчик.</p>
 <pre class="prettyprint source lang-js"><code>this.on( 'change:x', function() {
     if( this.x && this.x.isMK ) {
         this.x.on( 'y', function( message ) {
