@@ -882,10 +882,11 @@
 </a>
 
 
-	<a>Туториал (скоро)</a>
 	<a href="#whats-new">Что нового?</a>
 	<a href="#how-to-update">Обновление до 1.0</a>
+	<a href="http://habrahabr.ru/company/matreshka/blog/254889/">Туториал</a>
 	<a href="//matreshka.io" class="another-language"><i></i> English version</a>
+	<a>Обновлено 2015-04-20</a>
 </nav> 
 
 
@@ -894,7 +895,7 @@
 	<article id="home">
 		<img src="img/mk5-logo_matreshka.svg" class="mk-logo-matreshka">
 		<img src="img/mk5-logo_text.svg" class="mk-logo-text">
-		<span class="version">v1.0.4</span>
+		<span class="version">v1.1.0</span>
 		<p>JavaScript фреймворк для программистов</p>
 		<pre class="prettyprint lang-html" style="max-width: 540px; margin: 0 auto; text-align: left;"><code>&lt;script src=&quot;matreshka.min.js&quot;&gt;&lt;/script&gt;
 &lt;input type=&quot;text&quot; class=&quot;my-input&quot;&gt;
@@ -1814,7 +1815,7 @@ this.trigger( 'bar', 1, 2, 3 ); // alerts 6</code></pre>
     getValue: function() { ... },
     setValue: function() { ... }
 });</code></pre><p>Например, вы хотите связать свойство объекта с элементом <code>input[type="checkbox"]</code>:</p>
-<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-checkbox'. {
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-checkbox', {
     // когда менятся состояние элемента?
     // - по событию 'click'
     on: 'click',
@@ -5250,7 +5251,7 @@ for( var i = 0; i &lt; 100; i++ ) {
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>var id = MK.ramdomString();</code></pre>
+<pre class="prettyprint source lang-js"><code>var id = MK.randomString();</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka.randomString" data-title="Метод Matreshka.randomString">Задать вопрос<i></i></a>
@@ -5340,10 +5341,10 @@ this.bindNode( 'myKey', '.my-element', MK.binders.myCoolBinder( 'Hello', 'World'
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'myKey', '.my-element', MK.binders.innerHTML() );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );
 
 // то же самое, что и
-this.bindElement( 'myKey', '.my-element', {
+this.bindNode( 'myKey', '.my-element', {
 	setValue: function( v ) {
 		this.innerHTML = v;
 	}
@@ -5421,18 +5422,18 @@ this.bindElement( 'myKey', '.my-element', {
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'myKey', '.my-element', MK.binders.visibility(true) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', MK.binders.visibility(true) );
 
 // то же самое, что и
-this.bindElement( 'myKey', '.my-element', {
+this.bindNode( 'myKey', '.my-element', {
 	setValue: function( v ) {
 		this.style.display = v ? '' : 'none';
 	}
 });</code></pre><h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'myKey', '.my-element', MK.binders.visibility(false) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', MK.binders.visibility(false) );
 
 // то же самое, что и
-this.bindElement( 'myKey', '.my-element', {
+this.bindNode( 'myKey', '.my-element', {
 	setValue: function( v ) {
 		this.style.display = v ? 'none' : '';
 	}
@@ -5508,10 +5509,10 @@ this.bindElement( 'myKey', '.my-element', {
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'myKey', '.my-element', MK.binders.className( 'blah' ) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', MK.binders.className( 'blah' ) );
 
 // то же самое, что и
-this.bindElement( 'myKey', '.my-element', {
+this.bindNode( 'myKey', '.my-element', {
 	setValue: function( v ) {
 		$( this ).toggleClass( 'blah', v );
 	}
@@ -5520,10 +5521,10 @@ this.bindElement( 'myKey', '.my-element', {
 this.myKey = true; // добавляет класс 'blah' 
 
 this.myKey = false; // убирает класс 'blah' </code></pre><h5><p>Использование восклицательного знака перед именем класса</p></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'myKey', '.my-element', MK.binders.className( '!blah' ) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element', MK.binders.className( '!blah' ) );
 
 // то же самое, что и
-this.bindElement( 'myKey', '.my-element', {
+this.bindNode( 'myKey', '.my-element', {
 	setValue: function( v ) {
 		$( this ).toggleClass( 'blah', !v );
 	}
@@ -5603,10 +5604,10 @@ this.myKey = true; // убирает класс 'blah' </code></pre>
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'disabled', '.my-button', MK.binders.property( 'disabled' ) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'disabled', '.my-button', MK.binders.property( 'disabled' ) );
 
 // то же самое, что и
-this.bindElement( 'disabled', '.my-button', {
+this.bindNode( 'disabled', '.my-button', {
 	setValue: function( v ) {
 		this.disabled = v;
 	}
@@ -5688,10 +5689,10 @@ this.disabled = false; </code></pre>
 	<h4>Примеры</h4>
   
 <h5></h5>
-<pre class="prettyprint source lang-js"><code>this.bindElement( 'image', 'img.my-image', MK.binders.attribute( 'src' ) );
+<pre class="prettyprint source lang-js"><code>this.bindNode( 'image', 'img.my-image', MK.binders.attribute( 'src' ) );
 
 // то же самое, что и
-this.bindElement( 'image', 'img.my-image', {
+this.bindNode( 'image', 'img.my-image', {
 	setValue: function( v ) {
 		this.setAttribute( 'src', v );
 	}
@@ -7037,7 +7038,7 @@ this.pop();</code></pre><h4>Все методы, позаимствованны�
 });
 this.pop_({
     silent: true
-});</code></pre><h4>Разработчик имеет возможность отлавливать любые модификации данных</h4><p><strong>При использовании методов, позаимствованных у встроенного <code>Array</code> генерируются события с соответствующим именем.</strong> Вызывая метод <code>push</code>, генерируется событие <code>push</code> вызывая метод <code>pull</code> генерируется событие <code>pull</code>, вызывая метод <code>sort</code>, генерируется событие <code>sort</code> и так далее... Список аргументов можно получить, обратясь к свойству <code>args</code>.</p>
+});</code></pre><h4>Разработчик имеет возможность отлавливать любые модификации данных</h4><p><strong>При использовании методов, позаимствованных у встроенного <code>Array</code> генерируются события с соответствующим именем.</strong> Вызывая метод <code>push</code>, генерируется событие <code>push</code>, вызывая метод <code>pull</code> генерируется событие <code>pull</code>, вызывая метод <code>sort</code>, генерируется событие <code>sort</code> и так далее... Список аргументов можно получить, обратясь к свойству <code>args</code>.</p>
 <pre class="prettyprint source lang-js"><code>this.on( 'push', function( evt ) {
     console.log( evt.args ); // [1,2,3]
 });
