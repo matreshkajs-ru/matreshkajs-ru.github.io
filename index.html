@@ -896,7 +896,7 @@
 		<img src="img/mk5-logo_matreshka.svg" class="mk-logo-matreshka">
 		<img src="img/mk5-logo_text.svg" class="mk-logo-text">
 		<span class="version">v1.0.6</span>
-		<p>JavaScript фреймворк для программистов</p>
+		<p>Event-driven JavaScript фреймворк</p>
 		<pre class="prettyprint lang-html" style="max-width: 540px; margin: 0 auto; text-align: left;"><code>&lt;script src=&quot;matreshka.min.js&quot;&gt;&lt;/script&gt;
 &lt;input type=&quot;text&quot; class=&quot;my-input&quot;&gt;
 &lt;script&gt;
@@ -1677,7 +1677,7 @@ this.x = 3; // ничего не делает</code></pre>
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.off( 'change:x bind' );</code></pre><h5><p>Удаление всех событий</p></h5>
 <pre class="prettyprint source lang-js"><code>this.off();</code></pre><h5><p>Удаление события с определенным обработчиком</p></h5>
-<pre class="prettyprint source lang-js"><code>var handler = function() { 
+<pre class="prettyprint source lang-js"><code>var handler = function() {
 	//...
 }
 this.on( 'change:x', handler );
@@ -1814,7 +1814,7 @@ this.trigger( 'bar', 1, 2, 3 ); // alerts 6</code></pre>
 		<span class="new-badge"></span>
 	</h2>
 	<div class="summary"><p>Связывает свойство объекта с HTML элементом</p></div>
-	<div class="description"><p><a href="#Matreshka-bindNode">Matreshka#bindNode</a> - это единственный метод класса <a href="#Matreshka">Matreshka</a>, отвечающий за изменения DOM. Он создаёт мост между значением свойства и состоянием HTML элемента на странице: от простого инпута до сложного виджета (сложность элементов не ограничена). <code>bindNode</code>, по праву, можно назвать главным методом фреймворка. После связывания свойства экземпляра и HTML элемента не нужно больше следить за синхронизацией данных и представления. </p>
+	<div class="description"><p><a href="#Matreshka-bindNode">Matreshka#bindNode</a> - это единственный метод класса <a href="#Matreshka">Matreshka</a>, отвечающий за изменения DOM. Он создаёт мост между значением свойства и состоянием HTML элемента на странице: от простого инпута до сложного виджета (сложность элементов не ограничена). <code>bindNode</code>, по праву, можно назвать главным методом фреймворка. После связывания свойства экземпляра и HTML элемента не нужно больше следить за синхронизацией данных и представления.</p>
 <p>Для двустороннего связывания элемента и значения свойства, в метод передаются три аргумента: <strong>имя свойства</strong> (ключ), <strong>HTML элемент</strong> (или селектор) и <strong>правило привязки</strong> (синонимы: байндер, биндер, binder, привязчик). Байндер, в свою очередь, является обычным объектом и может иметь следующие свойства: <code>on</code>, <code>getValue</code>, <code>setValue</code>, <code>initialize</code> (подробнее см. <span data-type="binder">binder</span>). Все четыре свойства - опциональны. Это позволяет также объявить и односторонние привязки.</p>
 <blockquote>
 <p>Метод <code>bindNode</code> поддерживает привязки "многие ко многим". С одним свойством можно связать несколько элементов, а с одним элементом можно связать несколько свойств, в том числе и от разных экземпляров разных классов.</p>
@@ -2101,7 +2101,7 @@ MK.defaultBinders.shift( function( element ) {
 	}
 });
 
-this.bindNode( 'myKey', '.my-custom-checkbox' );</code></pre><h5><p>Событие <code>&quot;bind&quot;</code>, которое генерируется после связыввании любого свойства и HTML узла</p></h5>
+this.bindNode( 'myKey', '.my-custom-checkbox' );</code></pre><h5><p>Событие <code>&quot;bind&quot;</code>, которое генерируется после связывании любого свойства и HTML узла</p></h5>
 <pre class="prettyprint source lang-js"><code>this.on( 'bind', function() { alert( 'ok!' ); });
 this.bindNode( 'myKey', '.my-element' ); // alerts "ok!"</code></pre><h5><p>Событие <code>&quot;bind:KEY&quot;</code>, которое генерируется при связыввании конкретного свойства и HTML узла</p></h5>
 <pre class="prettyprint source lang-js"><code>this.on( 'bind:myKey', function() { alert( 'ok!' ); });
@@ -2461,12 +2461,12 @@ this.bindNode( 'myKey', '.my-element', MK.binders.innerHTML() );</code></pre>
 <pre class="prettyprint source lang-js"><code>this.bindNode( 'myKey', '.my-element' );
 
 // меняет значение свойства и состояние HTML элемента
-this.myKey = true; 
+this.myKey = true;
 
 this.unbindNode( 'myKey', '.my-element' );
 
 // теперь меняется только значение свойства
-this.myKey = false; </code></pre>
+this.myKey = false;</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
 	<a class="comments" data-id="Matreshka-unbindNode" data-title="Метод Matreshka-unbindNode">Задать вопрос<i></i></a>
@@ -2560,8 +2560,8 @@ this.myKey = false; </code></pre>
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.unbindNode({
-	myKey1: '.my-element1' 
-	myKey1: '.my-element2' 
+	myKey1: '.my-element1'
+	myKey1: '.my-element2'
 });</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
@@ -3269,8 +3269,8 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.defineGetter({
-	myKey1: function() { return 1; } 
-	myKey2: function() { return 2; } 
+	myKey1: function() { return 1; }
+	myKey2: function() { return 2; }
 });</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
@@ -3410,8 +3410,8 @@ $( '.app' ).find( '.my-element' )[ 0 ];</code></pre>
   
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>this.defineSetter({
-	myKey1: function( v ) { alert( v ); } 
-	myKey2: function( v ) { alert( v ); } 
+	myKey1: function( v ) { alert( v ); }
+	myKey2: function( v ) { alert( v ); }
 });</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
@@ -4725,7 +4725,7 @@ this.bindNode( 'myKey', '.custom-checkbox' );</code></pre>
 <h5></h5>
 <pre class="prettyprint source lang-js"><code>var o1 = { a: 3 },
 	o2 = { b: 4 };
-	
+
 MK.extend( o1, o2 );</code></pre>
 	
 	<!--<a href="//jsbin.com/iwovaj/74/embed?js,output">JSBIN</a>-->
@@ -8701,7 +8701,7 @@ $.extend(myObject,{
 };</code></pre><h5><p>Функция <code>create</code> - дополнительная утилита для создания элементов, входящая в комплект Матрешки. Первый аргумент - имя тега, второй - свойства, расширяющие DOM объект</p></h5>
 <pre class="prettyprint source lang-js"><code>var div = $.create( 'div', {
 	className: 'my-div',
-	innerHTML: 'My DIV'
+	innerHTML: 'My DIV',
 	dataset: {
 		a: 1,
 		b: 2

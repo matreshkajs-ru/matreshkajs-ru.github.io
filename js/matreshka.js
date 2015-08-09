@@ -1,5 +1,5 @@
 /*
-	Matreshka v1.0.6 (2015-05-19)
+	Matreshka v1.0.6 (2015-08-09)
 	JavaScript Framework by Andrey Gubanov
 	Released under the MIT license
 	More info: http://matreshka.io
@@ -539,18 +539,34 @@ return ( function( window, document, fn, nsRegAndEvents, id, s_EventListener, s_
 		return $b( node.children );
 	};
 	
-	$b.create = function( tagName, props ) {
-		var el = document.createElement( tagName ),
-			i, j;
+	$b.create = function create( tagName, props ) {
+		var el, i, j, prop;
+		
+		if( typeof tagName == 'object' ) {
+			props = tagName;
+			tagName = props.tagName;
+		}
+		
+		el = document.createElement( tagName )
+		
 		if( props ) for( i in props ) {
-			if( i == 'attributes' && typeof props[ i ] == 'object' ) {
-				for( j in props[ i ] ) if( props[ i ].hasOwnProperty( j ) ) {
-					el.setAttribute( j, props[ i ][ j ] );
+			prop = props[ i ];
+			if( i == 'attributes' && typeof prop == 'object' ) {
+				for( j in prop ) if( prop.hasOwnProperty( j ) ) {
+					el.setAttribute( j, prop[ j ] );
 				}
-			} else  if( el[ i ] && typeof props == 'object' ) {
-				el[ i ] = $b.extend( el[ i ] || {}, props[ i ] );
+			} else if( i == 'tagName' ) {
+				continue;
+			} else if( i == 'children' && prop ) {
+				for( j = 0; j < prop.length; j++ ) {
+					el.appendChild( create( prop[ j ] ) );
+				}
+			} else if( typeof el[ i ] == 'object' && el[ i ] !== null && typeof props == 'object' ) {
+				for( j in prop ) if( prop.hasOwnProperty( j ) ) {
+					el[ i ][ j ] = prop[ j ];
+				}
 			} else {
-				el[ i ] = props[ i ];
+				el[ i ] = prop;
 			}			
 		}
 		return el;
@@ -989,8 +1005,18 @@ var MK = Class({
 					
 					handler._callback = callback;
 					
-					// add event to the new value
+					// add event to new value
 					target._on( name, handler, ctx );
+					
+					if( evt && evt.previousValue && evt.value && name.indexOf( 'change:' ) == 0 ) {
+						var xxx = name.replace( 'change:', '' );
+						if( evt.value[ xxx ] !== evt.previousValue[ xxx ] ) {
+							evt.value.set( xxx, evt.value[ xxx ], {
+								force: true,
+								previousValue: evt.previousValue[ xxx ]
+							});
+						}
+					}
 				}
 				
 				// remove event handler from previous value 
@@ -1778,14 +1804,14 @@ var MK = Class({
 		special.value = newV;
 
 		if( newV !== prevVal || evt.force || evt.forceHTML || newV !== v && !isNaN( newV ) ) {
-			evt = extend({}, evt, {
+			evt = extend({
 				value: newV,
 				previousValue: prevVal,
 				key: key,
 				node: special.$nodes[ 0 ] || null,
 				$nodes: special.$nodes,
 				self: _this
-			});
+			}, evt );
 			
 			if( !evt.silentHTML ) {
 				_this._trigger( '_runbindings:' + key, evt );
