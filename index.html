@@ -1020,7 +1020,6 @@
 
 
 	<a href="#!whats-new">Что нового?</a>
-	<a href="#!how-to-update">Обновление до 1.0</a>
 	<a href="http://habrahabr.ru/company/matreshka/blog/254889/">Туториал</a>
 	<a href="//matreshka.io" class="another-language"><i></i> English version</a>
 	<a>Обновлено 2015-08-25</a>
@@ -1228,7 +1227,7 @@ var app = new Application();</code></pre><p><strong>3.</strong> Это всё!</
 			<i class="important" title="Важно"></i>
 		</h2>
 		<div class="description">
-			<p>Класс Matreshka - ядро фреймворка Matreshka.js, от которого наследуются <a href="#!Matreshka.Array">Matreshka.Array</a>, <a href="#!Matreshka.Object">Matreshka.Object</a> и каждый класс создаваемого приложения. Он содержит основной функционал фреймворка, среди которого есть несколько полезнейших функций: <a href="#!Matreshka-mediate">медиаторы</a>, <a href="#!Matreshka-linkProps">зависимости</a>, {@link Matreshka#bindNode привязки к DOM}, {@link Matreshka#on движок событий} и пр. Наследование этого класса, как и наследование любого другого класса, осуществляется при помощи функции <a href="#!Class">Class</a>.</p>
+			<p>Класс Matreshka - ядро фреймворка Matreshka.js, от которого наследуются <a href="#!Matreshka.Array">Matreshka.Array</a>, <a href="#!Matreshka.Object">Matreshka.Object</a> и каждый класс создаваемого приложения. Он содержит основной функционал фреймворка, среди которого есть несколько полезнейших функций: <a href="#!Matreshka-mediate">медиаторы</a>, <a href="#!Matreshka-linkProps">зависимости</a>, <a href="#!Matreshka-bindNode">привязки к DOM</a>, <a href="#!Matreshka-on">движок событий</a> и пр. Наследование этого класса, как и наследование любого другого класса, осуществляется при помощи функции <a href="#!Class">Class</a>.</p>
 <p>Как правило, этот класс, (как и <a href="#!Matreshka.Array">Matreshka.Array</a> и <a href="#!Matreshka.Object">Matreshka.Object</a>), не используются напрямую. Вместо этого, от него наследуются классы, создаваемые вами. Поэтому, примеры к свойствам и методам в этой документации, как правило, будут приведены с использованием ключевого слова <code>this</code>.</p>
 		</div>
 		
@@ -1823,7 +1822,7 @@ this.on({
 	
 		<li><a href="#!Matreshka.debounce">Matreshka.debounce</a>
 	
-		<li>{@link http://habrahabr.ru/post/60957/ Статья на Хабре о микропаттерне debounce}
+		<li><a href="http://habrahabr.ru/post/60957/">Статья на Хабре о микропаттерне debounce</a>
 	
 </ul>
 
@@ -5350,7 +5349,7 @@ this.remove( 'myKey1 myKey2' );</code></pre><h5><p>Использование <c
 <h4>Ссылки</h4>
 <ul class="see">
 	
-		<li>{@link https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers.setTimeout setTimeout на MDN}
+		<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers.setTimeout">setTimeout на MDN</a>
 	
 </ul>
 
@@ -5931,7 +5930,7 @@ MK.each( myObject, function( value, key ) {
 		<span class="new-badge"></span>
 	</h2>
 	<div class="summary"><p>Запускает функцию лишь однажды после истечения таймера. С каждой попыткой запуска таймер обновляется</p></div>
-	<div class="description"><p>Этот метод - реализация микропаттерна <strong>debounce</strong>, который решает проблему многократного вызова обработчика событий за определенный промежуток времени. См. пример и {@link http://habrahabr.ru/post/60957/ статью на Хабре}.</p></div>
+	<div class="description"><p>Этот метод - реализация микропаттерна <strong>debounce</strong>, который решает проблему многократного вызова обработчика событий за определенный промежуток времени. См. пример и <a href="http://habrahabr.ru/post/60957/">статью на Хабре</a>.</p></div>
 	
 	
 
@@ -10083,7 +10082,7 @@ alert( this instanceof MyClass );</code></pre>
 <h4>Ссылки</h4>
 <ul class="see">
 	
-		<li>{@link https://github.com/finom/balalaika Балалайка на Github}
+		<li><a href="https://github.com/finom/balalaika">Балалайка на Github</a>
 	
 </ul>
 
@@ -10746,7 +10745,7 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 
 </section>
 <section>
-<article><h2><a href="#whats-new">Что нового?</a></h2><h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.6">Матрешка 1.0.6</a></h3><ul>
+<article></article><article id="!whats-new"><h2><a href="#!whats-new">Что нового?</a></h2><h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.6">Матрешка 1.0.6</a></h3><ul>
 <li>Устранена проблема работы AMD в минифицированной версии</li>
 </ul>
 <h3><a href="https://github.com/finom/matreshka/releases/tag/v1.0.5">Матрешка 1.0.5</a></h3><ul>
@@ -10870,11 +10869,6 @@ this.set( 'a', 2, eventOptions ); // alerts "yeah"</code></pre>
 <li>Создан приватный метод Matreshka#_initMK</li>
 <li>Оптимизирован код <a href="#!Matreshka.Object">Matreshka.Object</a></li>
 <li>Убран полифил Number.isNaN</li>
-</ul></article><article><h2><a href="#how-to-update">Переход на новую версию</a></h2><p>Переход на версию 1.0 с любой предыдущей версии должен произойти относительно безболезненно, хотя и требует вмешательства в старый код.</p>
-<ul>
-<li>Сначала нужно обновиться до переходной версии 0.4, которая включает все исправления и нововведения, для первой версии.</li>
-<li>После обновления вы увидите в консоли исключения с инструкциями, что нужно исправить, например убрать вызов устаревшего метода <code>initMK</code>. Пользуясь инструментами разработчика, отследите источники исключений с помощью stack trace. Так же, можете воспользоваться поиском по JavaScript файлам для отслеживания поиска устаревших методов.</li>
-<li>Потестируйте своё приложение и, если исключения больше не возникают, обновитесь до версии 1.0.</li>
 </ul></article>
 </section>
 </main>

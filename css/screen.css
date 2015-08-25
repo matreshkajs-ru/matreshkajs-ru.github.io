@@ -3913,7 +3913,7 @@ span.badge.new:after {
     font-style: normal;
 }*/
 /* line 13, ../scss/components/_icons-material-design.scss */
-[class^="mdi-"]::before, [class*=" mdi-"]::before, .mdi::before, .close-modal::before, i.important::before, #promo .download-btn i::before, main h1 a::before, main h2 a::before, main h3 a::before, main h4 a::before, main .comments i::before, nav .expand::before, nav a.expanded .expand::before, header i::before, .typo-badge .close::before {
+[class^="mdi-"]::before, [class*=" mdi-"]::before, .mdi::before, .close-modal::before, i.important::before, a[href*="//"]::before, #promo .download-btn i::before, main .comments i::before, nav .expand::before, nav a.expanded .expand::before, header i::before, .typo-badge .close::before {
   font-family: "Material-Design-Icons";
   speak: none;
   font-style: normal;
@@ -5272,7 +5272,7 @@ span.badge.new:after {
 }
 
 /* line 835, ../scss/components/_icons-material-design.scss */
-.mdi-content-link:before, main h1 a:before, main h2 a:before, main h3 a:before, main h4 a:before {
+.mdi-content-link:before {
   content: "\e70d";
 }
 
@@ -9717,10 +9717,8 @@ summary:focus {
 
 /* line 150, ../scss/site/_common.scss */
 a[href*="//"]::before {
-  font-family: "Material-Design-Icons";
-  display: inline-block;
   vertical-align: middle;
-  margin-right: 3px;
+  margin-right: .3em;
   font-size: 1.2em;
   line-height: 1;
   font-weight: normal;
@@ -10016,26 +10014,31 @@ main h1, main h2, main h3, main h4 {
 /* line 66, ../scss/site/_main.scss */
 main h1 a, main h2 a, main h3 a, main h4 a {
   color: #8BC34A;
+  			/*padding-left: 1.2em;
+  			@extend .mdi, .mdi-content-link;
+  			&::before {
+  				display: none;
+  				position: absolute;
+  				left: 0;
+  				color: rgba(#000,.5);
+  				padding-right: 5px;
+  			}
+  
+  			&:hover {
+  				&::before {
+  					display: inline-block;
+  				}
+  			}
+  
+  			@media only screen and (max-width : 992px) {
+  				&:hover {
+  					&::before {
+  						display: none;
+  					}
+  				}
+  			}*/
 }
-/* line 69, ../scss/site/_main.scss */
-main h1 a::before, main h2 a::before, main h3 a::before, main h4 a::before {
-  display: none;
-  position: absolute;
-  left: -40px;
-  color: rgba(0, 0, 0, 0.5);
-  padding-right: 5px;
-}
-/* line 78, ../scss/site/_main.scss */
-main h1 a:hover::before, main h2 a:hover::before, main h3 a:hover::before, main h4 a:hover::before {
-  display: inline-block;
-}
-@media only screen and (max-width: 992px) {
-  /* line 85, ../scss/site/_main.scss */
-  main h1 a:hover::before, main h2 a:hover::before, main h3 a:hover::before, main h4 a:hover::before {
-    display: none;
-  }
-}
-/* line 94, ../scss/site/_main.scss */
+/* line 95, ../scss/site/_main.scss */
 main h2 {
   font-size: 2.5rem;
   margin-top: 0;
@@ -10044,124 +10047,124 @@ main h2 {
   text-overflow: ellipsis;
 }
 @media only screen and (max-width: 600px) {
-  /* line 102, ../scss/site/_main.scss */
+  /* line 103, ../scss/site/_main.scss */
   main h2 .default-value, main h2 .signature {
     display: none;
   }
 }
 @media only screen and (max-width: 992px) {
-  /* line 94, ../scss/site/_main.scss */
+  /* line 95, ../scss/site/_main.scss */
   main h2 {
     font-size: 2rem;
   }
-  /* line 109, ../scss/site/_main.scss */
+  /* line 110, ../scss/site/_main.scss */
   main h2 .memberof {
     display: block;
     font-size: 1rem;
   }
-  /* line 113, ../scss/site/_main.scss */
+  /* line 114, ../scss/site/_main.scss */
   main h2 .signature {
     font-size: 1rem;
     float: left;
   }
 }
-/* line 119, ../scss/site/_main.scss */
+/* line 120, ../scss/site/_main.scss */
 main h2 i.important {
   font-size: inherit;
 }
-/* line 124, ../scss/site/_main.scss */
+/* line 125, ../scss/site/_main.scss */
 main h3, main h4 {
   font-size: 1.5rem;
   margin-bottom: .5rem;
 }
-/* line 129, ../scss/site/_main.scss */
+/* line 130, ../scss/site/_main.scss */
 main h5 {
   font-size: 1rem;
 }
-/* line 133, ../scss/site/_main.scss */
+/* line 134, ../scss/site/_main.scss */
 main p {
   margin-bottom: 1rem;
 }
-/* line 135, ../scss/site/_main.scss */
+/* line 136, ../scss/site/_main.scss */
 main p:last-child {
   margin-bottom: 0;
 }
-/* line 138, ../scss/site/_main.scss */
+/* line 139, ../scss/site/_main.scss */
 main p:first-child {
   margin-bottom: 1rem;
 }
-/* line 142, ../scss/site/_main.scss */
+/* line 143, ../scss/site/_main.scss */
 main p i.important {
   line-height: 1;
 }
-/* line 155, ../scss/site/_main.scss */
+/* line 156, ../scss/site/_main.scss */
 main .signature, main .memberof, main .signature-class {
   color: rgba(0, 0, 0, 0.3);
 }
-/* line 159, ../scss/site/_main.scss */
+/* line 160, ../scss/site/_main.scss */
 main .comments {
   cursor: pointer;
   margin-top: 10px;
   color: #8BC34A;
   background-color: #fff;
 }
-/* line 166, ../scss/site/_main.scss */
+/* line 167, ../scss/site/_main.scss */
 main .comments:hover {
   background-color: #fff;
 }
-/* line 169, ../scss/site/_main.scss */
+/* line 170, ../scss/site/_main.scss */
 main .comments i {
   margin-left: 15px;
 }
-/* line 175, ../scss/site/_main.scss */
+/* line 176, ../scss/site/_main.scss */
 main .description {
   margin-bottom: 1rem;
 }
-/* line 179, ../scss/site/_main.scss */
+/* line 180, ../scss/site/_main.scss */
 main .pagination {
   display: none;
   margin: 2rem 0;
 }
-/* line 183, ../scss/site/_main.scss */
+/* line 184, ../scss/site/_main.scss */
 main .pagination .previous-page:empty {
   display: none !important;
 }
-/* line 186, ../scss/site/_main.scss */
+/* line 187, ../scss/site/_main.scss */
 main .pagination .previous-page::before {
   content: '← ';
 }
-/* line 191, ../scss/site/_main.scss */
+/* line 192, ../scss/site/_main.scss */
 main .pagination .next-page {
   float: right;
 }
-/* line 193, ../scss/site/_main.scss */
+/* line 194, ../scss/site/_main.scss */
 main .pagination .next-page:empty {
   display: none !important;
 }
-/* line 196, ../scss/site/_main.scss */
+/* line 197, ../scss/site/_main.scss */
 main .pagination .next-page::after {
   content: ' →';
 }
-/* line 202, ../scss/site/_main.scss */
+/* line 203, ../scss/site/_main.scss */
 main ul {
   margin-bottom: 1rem;
 }
-/* line 204, ../scss/site/_main.scss */
+/* line 205, ../scss/site/_main.scss */
 main ul li {
   list-style-type: disc;
   margin-left: 20px;
 }
-/* line 210, ../scss/site/_main.scss */
+/* line 211, ../scss/site/_main.scss */
 main img {
   max-width: 100%;
 }
-/* line 216, ../scss/site/_main.scss */
+/* line 217, ../scss/site/_main.scss */
 main div.summary::before {
   content: '—';
   float: left;
   padding-right: 4px;
 }
-/* line 223, ../scss/site/_main.scss */
+/* line 224, ../scss/site/_main.scss */
 main .event {
   padding: 3px 8px;
   background-color: #f9f9f9;
