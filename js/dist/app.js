@@ -1564,11 +1564,13 @@ define('app/main.class',['exports', 'module', 'globals', 'matreshka', 'balalaika
 				}
 			}
 
-			document.styleSheets[0].insertRule('body[data-version="stable"]\n\t\t\t[data-since="' + this.unstableVersion + '"] {\n\t\t\t\tdisplay: none;\n\t\t\t}', 0);
+			var styleSheet = document.styleSheets[0];
 
-			document.styleSheets[0].insertRule('article[data-since="' + this.unstableVersion + '"]:before {\n\t\t\t\tcontent: \'\\26A0   New since ' + this.unstableVersion + '\';\n\t\t\t\tcolor: #ef5350;\n\t\t\t}', 0);
+			styleSheet.insertRule('body[data-version="stable"]\n\t\t\t[data-since="' + this.unstableVersion + '"] {\n\t\t\t\tdisplay: none;\n\t\t\t}', styleSheet.cssRules.length);
 
-			document.styleSheets[0].insertRule('nav a[data-since="' + this.unstableVersion + '"]:after {\n\t\t\t\tcontent: \'\\26A0\';\n\t\t\t\tcolor: #ef5350;\n\t\t\t}', 0);
+			styleSheet.insertRule('article[data-since="' + this.unstableVersion + '"]:before {\n\t\t\t\tcontent: \'\\26A0   New since ' + this.unstableVersion + '\';\n\t\t\t\tcolor: #ef5350;\n\t\t\t}', styleSheet.cssRules.length);
+
+			styleSheet.insertRule('nav a[data-since="' + this.unstableVersion + '"]:after {\n\t\t\t\tcontent: \'\\26A0\';\n\t\t\t\tcolor: #ef5350;\n\t\t\t}', styleSheet.cssRules.length);
 
 			this.loading = false;
 

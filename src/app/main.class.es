@@ -69,20 +69,22 @@ export default class Main extends MK.Object {
 			}
 		}
 
-		document.styleSheets[0].insertRule(`body[data-version="stable"]
+		let styleSheet = document.styleSheets[0];
+		
+		styleSheet.insertRule(`body[data-version="stable"]
 			[data-since="${this.unstableVersion}"] {
 				display: none;
-			}`, 0);
+			}`, styleSheet.cssRules.length);
 
-		document.styleSheets[0].insertRule(`article[data-since="${this.unstableVersion}"]:before {
+		styleSheet.insertRule(`article[data-since="${this.unstableVersion}"]:before {
 				content: '\\26A0   New since ${this.unstableVersion}';
 				color: #ef5350;
-			}`, 0);
+			}`, styleSheet.cssRules.length);
 
-		document.styleSheets[0].insertRule(`nav a[data-since="${this.unstableVersion}"]:after {
+		styleSheet.insertRule(`nav a[data-since="${this.unstableVersion}"]:after {
 				content: '\\26A0';
 				color: #ef5350;
-			}`, 0);
+			}`, styleSheet.cssRules.length);
 
 		this.loading = false;
 
