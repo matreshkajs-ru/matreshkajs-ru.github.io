@@ -4237,7 +4237,7 @@ span.badge.new:after {
 }
 
 /* line 214, ../scss/components/_icons-material-design.scss */
-.mdi-action-language:before {
+.mdi-action-language:before, nav a.another-language:before {
   content: "\e63e";
 }
 
@@ -4287,7 +4287,7 @@ span.badge.new:after {
 }
 
 /* line 244, ../scss/components/_icons-material-design.scss */
-.mdi-action-open-in-new:before {
+.mdi-action-open-in-new:before, a[href*="//"]:before {
   content: "\e648";
 }
 
@@ -9715,6 +9715,17 @@ summary:focus {
   outline: none;
 }
 
+/* line 150, ../scss/site/_common.scss */
+a[href*="//"]::before {
+  font-family: "Material-Design-Icons";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+  font-size: 1.2em;
+  line-height: 1;
+  font-weight: normal;
+}
+
 /* line 1, ../scss/site/_promo.scss */
 #promo {
   background-color: #fff;
@@ -9723,12 +9734,16 @@ summary:focus {
   text-align: center;
   font-weight: 300;
 }
-/* line 11, ../scss/site/_promo.scss */
+/* line 10, ../scss/site/_promo.scss */
+#promo a:before {
+  content: '';
+}
+/* line 12, ../scss/site/_promo.scss */
 #promo article {
   padding-top: 100px;
   max-width: none;
 }
-/* line 16, ../scss/site/_promo.scss */
+/* line 17, ../scss/site/_promo.scss */
 #promo .version {
   color: #999;
   display: inline-block;
@@ -9737,64 +9752,64 @@ summary:focus {
   margin-left: 15px;
   font-size: 1.5rem;
 }
-/* line 26, ../scss/site/_promo.scss */
+/* line 27, ../scss/site/_promo.scss */
 #promo img {
   max-width: 90%;
 }
-/* line 30, ../scss/site/_promo.scss */
+/* line 31, ../scss/site/_promo.scss */
 #promo .mk-logo-matreshka {
   height: 133px;
 }
-/* line 34, ../scss/site/_promo.scss */
+/* line 35, ../scss/site/_promo.scss */
 #promo .mk-logo-text {
   height: 100px;
   margin-left: 30px;
 }
 @media only screen and (max-width: 992px) {
-  /* line 40, ../scss/site/_promo.scss */
+  /* line 41, ../scss/site/_promo.scss */
   #promo .version {
     display: block;
     margin: 0;
   }
-  /* line 45, ../scss/site/_promo.scss */
+  /* line 46, ../scss/site/_promo.scss */
   #promo .mk-logo-text {
     display: block;
     margin: 0 auto;
     margin-top: 25px;
   }
 }
-/* line 52, ../scss/site/_promo.scss */
+/* line 53, ../scss/site/_promo.scss */
 #promo h1 {
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 4rem;
 }
 @media only screen and (max-width: 600px) {
-  /* line 52, ../scss/site/_promo.scss */
+  /* line 53, ../scss/site/_promo.scss */
   #promo h1 {
     font-size: 3rem;
   }
 }
-/* line 62, ../scss/site/_promo.scss */
+/* line 63, ../scss/site/_promo.scss */
 #promo p.slogan {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
-/* line 67, ../scss/site/_promo.scss */
+/* line 68, ../scss/site/_promo.scss */
 #promo .download-btn, #promo .github-btn {
   vertical-align: top;
   font-size: 1rem;
   margin-top: 20px;
 }
-/* line 73, ../scss/site/_promo.scss */
+/* line 74, ../scss/site/_promo.scss */
 #promo .download-btn i, #promo .github-btn i {
   display: inline-block;
 }
-/* line 78, ../scss/site/_promo.scss */
+/* line 79, ../scss/site/_promo.scss */
 #promo .download-btn i {
   margin-left: 15px;
 }
-/* line 83, ../scss/site/_promo.scss */
+/* line 84, ../scss/site/_promo.scss */
 #promo .github-btn i::after {
   content: '';
   display: inline-block;
@@ -9806,31 +9821,31 @@ summary:focus {
   margin-left: 15px;
   margin-top: 8px;
 }
-/* line 95, ../scss/site/_promo.scss */
+/* line 96, ../scss/site/_promo.scss */
 #promo .next-page {
   display: block;
   float: none;
   margin-top: 4rem;
   font-size: 1.5rem;
 }
-/* line 102, ../scss/site/_promo.scss */
+/* line 103, ../scss/site/_promo.scss */
 #promo .main-sponsor {
   margin-top: 4rem;
 }
-/* line 104, ../scss/site/_promo.scss */
+/* line 105, ../scss/site/_promo.scss */
 #promo .main-sponsor img {
   margin-top: 1rem;
 }
-/* line 109, ../scss/site/_promo.scss */
+/* line 110, ../scss/site/_promo.scss */
 #promo .thanks {
   margin-top: 4rem;
 }
-/* line 118, ../scss/site/_promo.scss */
+/* line 119, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper {
   max-width: 550px;
   margin: 0 auto;
 }
-/* line 122, ../scss/site/_promo.scss */
+/* line 123, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .perf-graph {
   height: 300px;
   position: relative;
@@ -9838,7 +9853,7 @@ summary:focus {
   margin-top: 4rem;
   border-bottom: 1px solid #f2f2f2;
 }
-/* line 130, ../scss/site/_promo.scss */
+/* line 131, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column {
   position: absolute;
   bottom: 0;
@@ -9858,27 +9873,27 @@ summary:focus {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-/* line 149, ../scss/site/_promo.scss */
+/* line 150, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column.mk {
   left: 0;
   background: #8BC34A;
 }
-/* line 154, ../scss/site/_promo.scss */
+/* line 155, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column.rt {
   left: 25%;
   background: #61dafb;
 }
-/* line 159, ../scss/site/_promo.scss */
+/* line 160, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column.kk {
   left: 50%;
   background: #DE8601;
 }
-/* line 165, ../scss/site/_promo.scss */
+/* line 166, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column.ng {
   left: 75%;
   background: #DD1B16;
 }
-/* line 170, ../scss/site/_promo.scss */
+/* line 171, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column .fw-name {
   position: absolute;
   left: 0;
@@ -9886,36 +9901,38 @@ summary:focus {
   width: 100%;
   text-align: center;
 }
-/* line 178, ../scss/site/_promo.scss */
+/* line 179, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column .slower {
   position: absolute;
   top: -1.5rem;
   width: 100%;
   text-align: center;
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-/* line 185, ../scss/site/_promo.scss */
+/* line 188, ../scss/site/_promo.scss */
 #promo .perf-graph-wrapper .column .slower:first-line {
   color: black;
 }
-/* line 192, ../scss/site/_promo.scss */
+/* line 195, ../scss/site/_promo.scss */
 #promo .logos {
   margin-top: 4rem;
 }
-/* line 194, ../scss/site/_promo.scss */
+/* line 197, ../scss/site/_promo.scss */
 #promo .logos summary {
   color: #aaa;
 }
-/* line 197, ../scss/site/_promo.scss */
+/* line 200, ../scss/site/_promo.scss */
 #promo .logos img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   opacity: .5;
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
   margin: 0 1rem;
 }
-/* line 205, ../scss/site/_promo.scss */
+/* line 208, ../scss/site/_promo.scss */
 #promo .logos img:hover {
   -webkit-filter: none;
   filter: none;
@@ -10258,16 +10275,16 @@ nav a.active .hidden-active-child {
 nav a.another-language {
   font-weight: bold;
 }
-/* line 79, ../scss/site/_nav.scss */
+/* line 76, ../scss/site/_nav.scss */
 nav a:not([href]), nav a:not([href]):hover {
   background-color: white;
   color: rgba(0, 0, 0, 0.4);
 }
-/* line 87, ../scss/site/_nav.scss */
+/* line 84, ../scss/site/_nav.scss */
 nav i.important {
   line-height: 30px;
 }
-/* line 93, ../scss/site/_nav.scss */
+/* line 90, ../scss/site/_nav.scss */
 nav ul {
   -webkit-transition-property: margin-top;
   -moz-transition-property: margin-top;
@@ -10285,24 +10302,24 @@ nav ul {
   -ms-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* line 95, ../scss/site/_nav.scss */
+/* line 92, ../scss/site/_nav.scss */
 nav ul a {
   padding-left: 40px;
 }
-/* line 100, ../scss/site/_nav.scss */
+/* line 97, ../scss/site/_nav.scss */
 nav ul ul a {
   padding-left: 60px;
 }
-/* line 111, ../scss/site/_nav.scss */
+/* line 108, ../scss/site/_nav.scss */
 nav .submenu-wrapper {
   position: relative;
   overflow: hidden;
 }
-/* line 115, ../scss/site/_nav.scss */
+/* line 112, ../scss/site/_nav.scss */
 nav .submenu-wrapper ul {
   margin-top: -3000px;
 }
-/* line 120, ../scss/site/_nav.scss */
+/* line 117, ../scss/site/_nav.scss */
 nav .expand {
   position: absolute;
   font-size: 1.5rem;
@@ -10311,11 +10328,11 @@ nav .expand {
   color: rgba(0, 0, 0, 0.5);
   padding: 0 5px;
 }
-/* line 130, ../scss/site/_nav.scss */
+/* line 127, ../scss/site/_nav.scss */
 nav .expand:hover {
   color: rgba(0, 0, 0, 0.9);
 }
-/* line 137, ../scss/site/_nav.scss */
+/* line 134, ../scss/site/_nav.scss */
 nav .hidden-active-child {
   background-color: #8BC34A;
   height: 30px;
@@ -10329,7 +10346,7 @@ nav .hidden-active-child {
   color: white;
   border-radius: 2px;
 }
-/* line 149, ../scss/site/_nav.scss */
+/* line 146, ../scss/site/_nav.scss */
 nav .hidden-active-child::after {
   content: '';
   position: absolute;
@@ -10341,33 +10358,33 @@ nav .hidden-active-child::after {
   top: -6px;
   right: 8px;
 }
-/* line 161, ../scss/site/_nav.scss */
+/* line 158, ../scss/site/_nav.scss */
 nav .hidden-active-child:empty {
   display: none;
 }
-/* line 167, ../scss/site/_nav.scss */
+/* line 164, ../scss/site/_nav.scss */
 nav li:last-child .hidden-active-child {
   top: -24px;
 }
-/* line 169, ../scss/site/_nav.scss */
+/* line 166, ../scss/site/_nav.scss */
 nav li:last-child .hidden-active-child::after {
   border-width: 6px 6px 0  6px;
   border-color: #8BC34A transparent transparent transparent;
   top: auto;
   bottom: -6px;
 }
-/* line 180, ../scss/site/_nav.scss */
+/* line 177, ../scss/site/_nav.scss */
 nav a.expanded .hidden-active-child {
   display: none;
 }
 
-/* line 194, ../scss/site/_nav.scss */
+/* line 191, ../scss/site/_nav.scss */
 body.nav-shown .nav-overlay {
   display: none;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 200, ../scss/site/_nav.scss */
+  /* line 197, ../scss/site/_nav.scss */
   body.nav-shown nav {
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
@@ -10375,7 +10392,7 @@ body.nav-shown .nav-overlay {
     -o-transform: translateX(0);
     transform: translateX(0);
   }
-  /* line 203, ../scss/site/_nav.scss */
+  /* line 200, ../scss/site/_nav.scss */
   body.nav-shown .nav-overlay {
     display: block;
     opacity: .5;
